@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shop — Slick Velvet</title>
+<meta name="description" content="The Pump, 250 ml. Water-based personal lubricant made in Cape Town. Plain-box delivery across South Africa.">
+<link rel="icon" type="image/webp" href="assets/logo-sm.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#070308;--bg-2:#0d0509;--panel:#120812;--ink:#f6eef2;--muted:rgba(246,238,242,.55);--line:rgba(246,238,242,.09);--pink:#f30a71;--pink-2:#ff3d9a;--pink-3:#ff8ac4;--serif:'Instrument Serif',Georgia,serif;--sans:'Manrope',system-ui,sans-serif;color-scheme:dark}
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  body.has-cursor,body.has-cursor a,body.has-cursor button{cursor:none}
+  a{color:inherit;text-decoration:none} img{max-width:100%;display:block} button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+  :focus-visible{outline:2px solid var(--pink-2);outline-offset:4px;border-radius:4px}
+  .grain{position:fixed;inset:-50%;width:200%;height:200%;pointer-events:none;z-index:50;opacity:.045;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");animation:grain .6s steps(6) infinite}
+  @keyframes grain{0%{transform:translate(0,0)}50%{transform:translate(-8%,4%)}100%{transform:translate(5%,-6%)}}
+  .cursor{position:fixed;top:0;left:0;width:6px;height:6px;border-radius:50%;background:var(--ink);pointer-events:none;z-index:99;transform:translate(-50%,-50%)}
+  .ring{position:fixed;top:0;left:0;width:34px;height:34px;border-radius:50%;border:1px solid rgba(246,238,242,.45);pointer-events:none;z-index:99;transform:translate(-50%,-50%);transition:width .3s,height .3s,border-color .3s}
+  body.hovering .ring{width:52px;height:52px;border-color:var(--pink-2)}
+  @media (hover:none){.cursor,.ring{display:none}}
+  .gutter{padding-left:clamp(24px,4vw,64px);padding-right:clamp(24px,4vw,64px)}
+  /* nav */
+  .nav{position:fixed;top:0;left:0;right:0;z-index:60;display:flex;justify-content:space-between;align-items:center;padding:22px clamp(24px,4vw,64px);pointer-events:none}
+  .nav>*{pointer-events:auto}
+  .brand{display:flex;align-items:center;gap:12px;font-family:var(--serif);font-size:26px;line-height:1}
+  .brand img{width:30px;height:30px}
+  .nav .right{display:flex;align-items:center;gap:28px;font-size:13.5px;font-weight:500}
+  .nav .right a{opacity:.8;transition:opacity .3s} .nav .right a:hover{opacity:1}
+  .bag{display:flex;align-items:center;gap:10px}
+  .bag b{min-width:18px;height:18px;padding:0 5px;border-radius:999px;border:1px solid currentColor;font-weight:500;font-size:10px;display:grid;place-items:center}
+  .btn{display:inline-flex;align-items:center;gap:10px;padding:14px 26px;border-radius:999px;font-size:13.5px;font-weight:600;letter-spacing:.02em;white-space:nowrap;transition:background .3s,box-shadow .3s,border-color .3s}
+  .btn-pink{background:var(--pink);color:#fff} .btn-pink:hover{background:var(--pink-2);box-shadow:0 0 40px -6px rgba(243,10,113,.6)}
+  .btn-ghost{border:1px solid rgba(246,238,242,.25)} .btn-ghost:hover{border-color:var(--ink)}
+  /* shop */
+  .shop{position:relative;padding-block:16vh 10vh;background:radial-gradient(ellipse 60% 40% at 50% 0%,rgba(243,10,113,.14),transparent 70%),var(--bg)}
+  .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(32px,6vw,96px);align-items:center;max-width:1360px;margin:0 auto}
+  .stage{position:relative;aspect-ratio:1/1.1;perspective:1200px}
+  .stage .bgp{position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 85%,rgba(243,10,113,.35),transparent 70%),linear-gradient(180deg,var(--bg-2),var(--bg));border:1px solid var(--line)}
+  .stage img.shot{position:absolute;left:50%;bottom:4%;height:88%;width:auto;max-width:86%;object-fit:contain;transform:translateX(-50%);transition:opacity .5s,transform .9s cubic-bezier(.19,1,.22,1);will-change:transform;z-index:1;filter:drop-shadow(0 40px 60px rgba(0,0,0,.7))}
+  .stage img.shot.out{opacity:0;transform:translateX(-50%) scale(.95)}
+  .stage .chip{position:absolute;top:18px;left:18px;font-size:12.5px;font-weight:500;color:var(--muted);z-index:2}
+  .buy h1{font-family:var(--serif);font-weight:400;font-size:clamp(56px,6vw,96px);line-height:.9;letter-spacing:-.01em}
+  .buy h1 em{font-style:italic;color:var(--pink-2)}
+  .price{display:flex;align-items:baseline;gap:14px;margin-top:22px}
+  .price b{font-size:24px;font-weight:500;font-variant-numeric:tabular-nums} .price span{color:var(--muted);font-size:13px}
+  .desc{margin-top:22px;color:var(--muted);font-size:17px;font-weight:300;max-width:44ch}
+  .opts{margin-top:34px} .opts .lbl{font-size:13px;font-weight:500;color:var(--muted);margin-bottom:12px}
+  .sizes{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+  .size{padding:16px 18px;background:var(--bg);text-align:left;transition:background .3s,color .3s;display:grid;gap:4px}
+  .size b{font-weight:600;font-size:14.5px} .size span{font-size:12.5px;color:var(--muted)}
+  .size:hover{background:var(--bg-2)} .size[aria-pressed="true"]{background:var(--ink);color:var(--bg)} .size[aria-pressed="true"] span{color:rgba(7,3,8,.6)}
+  .row{display:flex;align-items:center;gap:12px;margin-top:26px;flex-wrap:wrap}
+  .qty{display:inline-flex;align-items:center;border:1px solid rgba(246,238,242,.2);border-radius:999px}
+  .qty button{width:44px;height:46px;font-size:18px;color:var(--muted)} .qty button:hover{color:var(--ink)}
+  .qty output{min-width:28px;text-align:center;font-size:14px;font-weight:500}
+  .add{padding:16px 30px}
+  .trust{margin-top:30px;display:grid;gap:8px;font-size:14px;color:var(--muted);list-style:none}
+  .trust li{padding-left:16px;position:relative} .trust li::before{content:'';position:absolute;left:0;top:10px;width:5px;height:5px;border-radius:50%;background:var(--pink-2)}
+  .facts{max-width:1360px;margin:12vh auto 0;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}
+  .fact{padding:32px 28px 36px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .fact h3{font-family:var(--serif);font-weight:400;font-size:32px;line-height:1.02} .fact p{margin-top:12px;color:var(--muted);font-size:14.5px;font-weight:300}
+  .faq{padding-block:14vh;max-width:1360px;margin:0 auto;display:grid;grid-template-columns:1fr 1.4fr;gap:clamp(32px,6vw,96px);align-items:start}
+  .faq h2{font-family:var(--serif);font-weight:400;font-size:clamp(48px,5.2vw,80px);line-height:.95;position:sticky;top:120px} .faq h2 em{font-style:italic;color:var(--pink-2)}
+  .q{border-top:1px solid var(--line)} .q:last-child{border-bottom:1px solid var(--line)}
+  .q button{width:100%;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:24px 0;text-align:left;font-family:var(--serif);font-size:26px}
+  .q button i{width:28px;height:28px;border-radius:50%;border:1px solid rgba(246,238,242,.2);display:grid;place-items:center;font-style:normal;font-size:16px;transition:transform .4s,background .3s;flex:none}
+  .q[open] button i{transform:rotate(45deg);background:var(--ink);color:var(--bg)}
+  .q .a{max-height:0;overflow:hidden;transition:max-height .5s cubic-bezier(.19,1,.22,1)} .q[open] .a{max-height:220px}
+  .q .a p{padding:0 48px 24px 0;color:var(--muted);font-size:16px;font-weight:300;max-width:60ch}
+  footer{padding-block:64px 32px;border-top:1px solid var(--line)}
+  .foot{max-width:1360px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px}
+  .foot h4{font-size:13px;font-weight:600;margin-bottom:18px} .foot ul{list-style:none;display:grid;gap:10px;font-size:15px;font-weight:300} .foot ul a:hover{color:var(--pink-2)}
+  .foot .about{display:grid;gap:18px;align-content:start} .foot .about img{width:56px} .foot .about p{color:var(--muted);font-size:15px;font-weight:300;max-width:34ch}
+  .legal{max-width:1360px;margin:48px auto 0;padding-top:22px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;justify-content:space-between;gap:14px;font-size:12.5px;color:var(--muted)}
+  .legal .ecta{width:100%;line-height:1.8} .legal .ecta em{color:var(--pink-3);font-style:normal}
+  /* gallery */
+  .gallery{padding-block:4vh 6vh;max-width:1360px;margin:0 auto}
+  .ghead{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:28px;flex-wrap:wrap}
+  .ghead h2{font-family:var(--serif);font-weight:400;font-size:clamp(44px,5vw,76px);line-height:.95} .ghead h2 em{font-style:italic;color:var(--pink-2)}
+  .ghead p{color:var(--muted);font-weight:300;max-width:34ch;font-size:15px}
+  .ggrid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:minmax(180px,22vw);gap:12px}
+  .ggrid figure{position:relative;overflow:hidden;background:var(--bg-2);border:1px solid var(--line)}
+  .ggrid figure img{width:100%;height:100%;object-fit:cover;display:block;transform:scale(1.04);transition:transform 1.4s cubic-bezier(.19,1,.22,1),filter .6s;filter:saturate(.96)}
+  .ggrid figure:hover img{transform:scale(1.1);filter:saturate(1.05)}
+  .ggrid figcaption{position:absolute;left:16px;bottom:14px;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:rgba(246,238,242,.8);text-shadow:0 1px 12px rgba(0,0,0,.8);opacity:0;transform:translateY(6px);transition:opacity .5s,transform .5s}
+  .ggrid figure:hover figcaption{opacity:1;transform:none}
+  .ggrid .big{grid-column:span 2;grid-row:span 2}
+  .ggrid .tall{grid-row:span 2}
+  .reveal{opacity:0;transform:translateY(28px)} .reveal.in{opacity:1;transform:none;transition:opacity 1.1s cubic-bezier(.19,1,.22,1),transform 1.1s cubic-bezier(.19,1,.22,1)}
+  /* bag */
+  .scrim{position:fixed;inset:0;background:rgba(7,3,8,.6);backdrop-filter:blur(6px);opacity:0;pointer-events:none;transition:opacity .4s;z-index:80} .scrim.on{opacity:1;pointer-events:auto}
+  .drawer{position:fixed;top:0;right:0;bottom:0;width:min(440px,100vw);background:var(--bg-2);border-left:1px solid var(--line);z-index:90;transform:translateX(104%);transition:transform .6s cubic-bezier(.19,1,.22,1);display:grid;grid-template-rows:auto 1fr auto}
+  .drawer.on{transform:translateX(0)}
+  .drawer header{display:flex;justify-content:space-between;align-items:center;padding:26px 24px 18px;border-bottom:1px solid var(--line)}
+  .drawer header h3{font-family:var(--serif);font-weight:400;font-size:30px}
+  .drawer header button{width:36px;height:36px;border-radius:50%;border:1px solid rgba(246,238,242,.2);font-size:18px}
+  .drawer .items{padding:18px 24px;overflow:auto;display:grid;gap:1px;align-content:start} .drawer .empty{color:var(--muted);font-size:15px;padding:24px 0;font-weight:300}
+  .item{display:grid;grid-template-columns:72px 1fr auto;gap:14px;align-items:center;padding:14px 0;border-bottom:1px solid var(--line)}
+  .item .th{width:72px;height:84px;background:radial-gradient(ellipse at 50% 80%,rgba(243,10,113,.3),var(--panel) 70%);display:grid;place-items:center;overflow:hidden} .item .th img{height:78%;width:auto}
+  .item b{font-weight:600;font-size:14.5px;display:block} .item small{font-size:12.5px;color:var(--muted)}
+  .item .ctl{display:grid;gap:6px;justify-items:end} .item .ctl .qty button{width:30px;height:32px;font-size:16px} .item .ctl .qty output{min-width:22px;font-size:12px}
+  .item .ctl .rm{font-size:12px;color:var(--muted)} .item .ctl .rm:hover{color:var(--pink-2)}
+  .drawer footer{padding:18px 24px 24px;display:grid;gap:14px;border:0;border-top:1px solid var(--line)}
+  .ship{font-size:13px;color:var(--muted)} .ship .track{height:1px;background:var(--line);margin-top:10px;overflow:hidden} .ship .track i{display:block;height:100%;width:0;background:var(--pink-2);transition:width .6s cubic-bezier(.19,1,.22,1)}
+  .subt{display:flex;justify-content:space-between;align-items:baseline} .subt span{font-size:13px;color:var(--muted)} .subt b{font-size:22px;font-weight:500}
+  .checkout{width:100%;justify-content:center;padding:18px} .note{font-size:12px;color:var(--muted);text-align:center;font-weight:300}
+  .toast{position:fixed;left:50%;bottom:28px;transform:translate(-50%,20px);padding:12px 20px;border-radius:999px;background:var(--ink);color:var(--bg);font-size:13.5px;font-weight:600;opacity:0;pointer-events:none;transition:opacity .3s,transform .4s cubic-bezier(.19,1,.22,1);z-index:95}
+  .toast.on{opacity:1;transform:translate(-50%,0)}
+  /* age gate (compact) */
+  .gate{position:fixed;inset:0;z-index:100;background:var(--bg);display:grid;place-items:center;text-align:center}
+  .gate::before{content:'';position:absolute;inset:-20%;background:radial-gradient(ellipse 42% 36% at 50% 56%,rgba(243,10,113,.3),transparent 70%)}
+  .gate .in{position:relative;display:flex;flex-direction:column;align-items:center;gap:16px}
+  .gate img{width:96px;filter:drop-shadow(0 0 28px rgba(243,10,113,.45))}
+  .gate h2{font-family:var(--serif);font-weight:400;font-size:clamp(40px,6vw,72px);line-height:.95} .gate h2 em{font-style:italic;color:var(--pink-2)}
+  .gate .age{display:flex;align-items:center;gap:10px;font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+  .gate .age b{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:50%;border:1.5px solid var(--pink-2);color:var(--pink-2);font-weight:600;font-size:10px;letter-spacing:0}
+  .gate .leave{font-size:12px;color:var(--muted);opacity:.7}
+  .gate.off{display:none}
+  @media (max-width:1100px){.ggrid{grid-template-columns:repeat(2,1fr);grid-auto-rows:minmax(160px,40vw)}.ggrid .big{grid-column:span 2;grid-row:span 1}.ggrid .tall{grid-row:span 1}.wrap,.faq{grid-template-columns:1fr}.faq h2{position:static}.sizes{grid-template-columns:1fr}.facts{grid-template-columns:1fr 1fr}}
+  @media (max-width:760px){.foot,.facts{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="gate off" id="gate"><div class="in"><img src="assets/logo.webp" alt=""><h2>Slick <em>Velvet</em></h2><div class="age"><b>18+</b>For adults only</div><a class="btn btn-pink" id="gateBtn" href="#" data-hover>I'm 18 or older — enter</a><a class="leave" href="https://www.google.com">I'm under 18</a></div></div>
+<div class="cursor" id="cur"></div><div class="ring" id="ring"></div>
+<div class="grain"></div>
+
+<nav class="nav" aria-label="Main">
+  <a class="brand" href="/" data-hover><img src="assets/logo-sm.webp" alt="">Slick Velvet</a>
+  <div class="right"><a href="/" data-hover>Home</a><a href="#faq" data-hover>FAQ</a><button class="bag" id="bagBtn" aria-label="Open bag" data-hover>Bag <b id="bagCount">0</b></button></div>
+</nav>
+
+<main>
+  <section class="shop gutter" id="shop">
+    <div class="wrap">
+      <div class="stage" id="stage"><div class="bgp"></div><span class="chip" id="chip">250 ml</span><img class="shot" id="stageImg" src="assets/shot-pump.webp" alt="Slick Velvet pump bottle"></div>
+      <div class="buy">
+        <h1 id="pname">The <em>Pump</em></h1>
+        <div class="price"><b id="price">R249</b><span id="psize">250 ml · incl. VAT</span></div>
+        <p class="desc" id="pdesc">The nightstand bottle. One hand, one press, done. Water-based, never sticky, rinses off clean.</p>
+        <div class="opts"><div class="lbl">Choose a size</div>
+          <div class="sizes" role="group" aria-label="Size">
+            <button class="size" data-sku="pump" aria-pressed="true" data-hover><b>The Pump</b><span>250 ml · R249</span></button>
+            <button class="size" data-sku="travel" aria-pressed="false" data-hover><b>The Travel</b><span>50 ml · R99</span></button>
+            <button class="size" data-sku="duo" aria-pressed="false" data-hover><b>The Duo</b><span>250 + 50 ml · R299</span></button>
+          </div></div>
+        <div class="row"><div class="qty"><button id="qminus" aria-label="Less" data-hover>−</button><output id="qty">1</output><button id="qplus" aria-label="More" data-hover>+</button></div><button class="btn btn-pink add" id="addBtn" data-hover>Add to bag</button></div>
+        <ul class="trust"><li>Free delivery on orders over R450</li><li>Plain packaging, discreet billing</li><li>7-day cooling-off on online orders</li></ul>
+      </div>
+    </div>
+    <div class="facts">
+      <div class="fact"><h3>Never sticky</h3><p>Stays slippery as long as you need it, then rinses clean with water.</p></div>
+      <div class="fact"><h3>Condom &amp; toy safe</h3><p>Water-based, so it's fine with latex, polyisoprene and silicone.</p></div>
+      <div class="fact"><h3>Plain-box delivery</h3><p>No branding on the box, a neutral name on your bank statement.</p></div>
+      <div class="fact"><h3>Made in Cape Town</h3><p>Formulated and filled locally. 2–5 working days anywhere in SA.</p></div>
+    </div>
+  </section>
+
+  <section class="gallery gutter" id="gallery">
+    <div class="ghead reveal"><h2>Shot in <em>Cape Town.</em></h2><p>No studio, no render. The actual bottle, out in the open, on a Tuesday.</p></div>
+    <div class="ggrid">
+      <figure class="big reveal"><img src="assets/life-bed.webp" alt="Slick Velvet pump on a daybed" loading="lazy"><figcaption>The Pump · 250 ml</figcaption></figure>
+      <figure class="reveal"><img src="assets/life-hand.webp" alt="The travel bottle in a palm" loading="lazy"><figcaption>The Travel · 50 ml</figcaption></figure>
+      <figure class="tall reveal"><img src="assets/life-wall.webp" alt="Slick Velvet against the sky" loading="lazy"><figcaption>Matte black</figcaption></figure>
+      <figure class="reveal"><img src="assets/life-green.webp" alt="The travel bottle in greenery" loading="lazy"><figcaption>Pocket-sized</figcaption></figure>
+      <figure class="reveal"><img src="assets/life-garden.webp" alt="The pump in a Cape Town garden" loading="lazy"><figcaption>Nightstand-proof</figcaption></figure>
+      <figure class="reveal"><img src="assets/life-lineup.webp" alt="Pump and travel bottles lined up" loading="lazy"><figcaption>The Duo</figcaption></figure>
+      <figure class="reveal"><img src="assets/life-sky.webp" alt="The pump held up to the sun" loading="lazy"><figcaption>One hand</figcaption></figure>
+      <figure class="reveal"><img src="assets/life-cushion.webp" alt="The pump on a cushion" loading="lazy"><figcaption>Leave it out</figcaption></figure>
+    </div>
+  </section>
+
+  <section class="faq gutter" id="faq">
+    <h2>Questions,<br><em>answered.</em></h2>
+    <div>
+      <details class="q"><summary style="list-style:none"><button type="button" tabindex="-1">Is it condom and toy safe?<i>+</i></button></summary><div class="a"><p>Yes. The formula is water-based, so it's safe with latex and polyisoprene condoms and with silicone toys. It washes off with water.</p></div></details>
+      <details class="q"><summary style="list-style:none"><button type="button" tabindex="-1">What will show on my bank statement?<i>+</i></button></summary><div class="a"><p>A neutral merchant name. The product is never named on your statement, and the box it arrives in is plain with no branding.</p></div></details>
+      <details class="q"><summary style="list-style:none"><button type="button" tabindex="-1">How long does delivery take?<i>+</i></button></summary><div class="a"><p>Orders ship from Cape Town. Expect 2 to 5 working days anywhere in South Africa. Delivery is free over R450.</p></div></details>
+      <details class="q"><summary style="list-style:none"><button type="button" tabindex="-1">Can I return it?<i>+</i></button></summary><div class="a"><p>Unopened products can be returned within 7 days of delivery under the Electronic Communications and Transactions Act. Opened products can't be returned for hygiene reasons.</p></div></details>
+    </div>
+  </section>
+</main>
+
+<footer class="gutter">
+  <div class="foot">
+    <div class="about"><img src="assets/logo-sm.webp" alt="Slick Velvet"><p>Personal lubricant made in Cape Town and shipped discreetly across South Africa.</p><ul style="display:flex;gap:18px"><li><a href="#" data-hover>Instagram</a></li><li><a href="#" data-hover>TikTok</a></li></ul></div>
+    <div><h4>Shop</h4><ul><li><a href="#shop" data-hover>The Pump</a></li><li><a href="#shop" data-hover>The Travel</a></li><li><a href="#shop" data-hover>The Duo</a></li></ul></div>
+    <div><h4>Help</h4><ul><li><a href="#faq" data-hover>FAQ</a></li><li><a href="#" data-hover>Shipping &amp; returns</a></li><li><a href="#" data-hover>Contact</a></li></ul></div>
+    <div><h4>Legal</h4><ul><li><a href="#" data-hover>Privacy policy</a></li><li><a href="#" data-hover>Terms &amp; conditions</a></li></ul></div>
+  </div>
+  <div class="legal"><div class="ecta"><em>[Registered business name (Pty) Ltd · Reg. no.]</em> · <em>[Physical address, Cape Town]</em> · <em>[hello@slickvelvet.co.za · +27 …]</em> · Prices in ZAR incl. VAT · For adults 18+</div><span>© 2026 Slick Velvet</span><span>slickvelvet.co.za</span></div>
+</footer>
+
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" aria-label="Your bag" aria-hidden="true">
+  <header><h3>Your bag</h3><button id="closeBag" aria-label="Close bag" data-hover>×</button></header>
+  <div class="items" id="items"><div class="empty">Your bag is empty.</div></div>
+  <footer><div class="ship"><span id="shipMsg">Add R450 for free delivery</span><div class="track"><i id="shipBar"></i></div></div><div class="subt"><span>Subtotal</span><b id="subtotal">R0</b></div><button class="btn btn-pink checkout" id="checkout" data-hover>Checkout</button><div class="note">Card and instant EFT at checkout.</div></footer>
+</aside>
+<div class="toast" id="toast">Added to bag</div>
+
+<script type="module">
+import gsap from 'https://cdn.jsdelivr.net/npm/gsap@3.12.5/index.js';
+const isTouch = matchMedia('(hover:none)').matches; if (!isTouch) document.body.classList.add('has-cursor');
+// age gate: skip if the scene already confirmed it
+let ok = false; try { ok = localStorage.getItem('sv18') === '1'; } catch {}
+const gate = document.getElementById('gate'); if (!ok) gate.classList.remove('off');
+document.getElementById('gateBtn').addEventListener('click', e => { e.preventDefault(); try { localStorage.setItem('sv18', '1'); } catch {} gsap.to(gate, { opacity: 0, duration: .6, onComplete: () => gate.classList.add('off') }); });
+// cursor
+const cur = document.getElementById('cur'), ring = document.getElementById('ring'); const m = { x: innerWidth / 2, y: innerHeight / 2 }; let rx = m.x, ry = m.y;
+window.addEventListener('pointermove', e => { m.x = e.clientX; m.y = e.clientY; });
+gsap.ticker.add(() => { rx += (m.x - rx) * .14; ry += (m.y - ry) * .14; cur.style.transform = `translate(${m.x}px,${m.y}px) translate(-50%,-50%)`; ring.style.transform = `translate(${rx}px,${ry}px) translate(-50%,-50%)`; });
+document.querySelectorAll('[data-hover]').forEach(el => { el.addEventListener('pointerenter', () => document.body.classList.add('hovering')); el.addEventListener('pointerleave', () => document.body.classList.remove('hovering')); });
+// product
+const SKUS = {
+  pump:   { name: 'The <em>Pump</em>',   price: 249, size: '250 ml · incl. VAT', chip: '250 ml', img: 'assets/shot-pump.webp',   desc: 'The nightstand bottle. One hand, one press, done. Water-based, never sticky, rinses off clean.' },
+  travel: { name: 'The <em>Travel</em>', price: 99,  size: '50 ml · incl. VAT',  chip: '50 ml',  img: 'assets/shot-travel.webp', desc: 'Flip cap, pocket sized. Fits a jacket, a clutch, a glovebox. Same formula, smaller bottle.' },
+  duo:    { name: 'The <em>Duo</em>',    price: 299, size: '250 + 50 ml · incl. VAT', chip: '250 ml + 50 ml', img: 'assets/shot-duo.webp', desc: 'One for home, one for the road. The Pump and the Travel together for less than buying both.' },
+};
+let sku = 'pump', qty = 1; const stageImg = document.getElementById('stageImg');
+function setSku(k) { sku = k; const s = SKUS[k]; document.querySelectorAll('.size').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.sku === k)));
+  document.getElementById('pname').innerHTML = s.name; document.getElementById('price').textContent = 'R' + s.price; document.getElementById('psize').textContent = s.size; document.getElementById('pdesc').textContent = s.desc; document.getElementById('chip').textContent = s.chip;
+  stageImg.classList.add('out'); setTimeout(() => { stageImg.src = s.img; stageImg.onload = () => stageImg.classList.remove('out'); }, 260); }
+document.querySelectorAll('.size').forEach(b => b.addEventListener('click', () => setSku(b.dataset.sku)));
+document.getElementById('qplus').addEventListener('click', () => { qty = Math.min(9, qty + 1); document.getElementById('qty').value = qty; });
+document.getElementById('qminus').addEventListener('click', () => { qty = Math.max(1, qty - 1); document.getElementById('qty').value = qty; });
+const stage = document.getElementById('stage');
+if (!isTouch) { stage.addEventListener('pointermove', e => { const r = stage.getBoundingClientRect(); const px = (e.clientX - r.left) / r.width - .5, py = (e.clientY - r.top) / r.height - .5; gsap.to(stageImg, { rotateY: px * 14, rotateX: -py * 8, x: px * 14, duration: .8, ease: 'power2.out', transformPerspective: 1200 }); }); stage.addEventListener('pointerleave', () => gsap.to(stageImg, { rotateY: 0, rotateX: 0, x: 0, duration: 1.2, ease: 'power3.out' })); }
+// bag
+let cart = {}; try { cart = JSON.parse(localStorage.getItem('sv-cart') || '{}'); } catch { cart = {}; }
+const save = () => { try { localStorage.setItem('sv-cart', JSON.stringify(cart)); } catch {} };
+const drawer = document.getElementById('drawer'), scrim = document.getElementById('scrim'), itemsEl = document.getElementById('items');
+const plain = h => h.replace(/<[^>]+>/g, '');
+function renderCart() { const keys = Object.keys(cart).filter(k => cart[k] > 0); const count = keys.reduce((n, k) => n + cart[k], 0); document.getElementById('bagCount').textContent = count;
+  const total = keys.reduce((n, k) => n + cart[k] * SKUS[k].price, 0); document.getElementById('subtotal').textContent = 'R' + total; const left = Math.max(0, 450 - total);
+  document.getElementById('shipMsg').textContent = left > 0 ? `Add R${left} for free delivery` : 'Free delivery unlocked'; document.getElementById('shipBar').style.width = Math.min(100, total / 450 * 100) + '%';
+  itemsEl.innerHTML = keys.length ? keys.map(k => `<div class="item"><div class="th"><img src="${SKUS[k].img}" alt=""></div><div><b>${plain(SKUS[k].name)}</b><small>R${SKUS[k].price} · ${SKUS[k].size.split(' · ')[0]}</small></div><div class="ctl"><div class="qty"><button data-dec="${k}" aria-label="Less">−</button><output>${cart[k]}</output><button data-inc="${k}" aria-label="More">+</button></div><button class="rm" data-rm="${k}">Remove</button></div></div>`).join('') : '<div class="empty">Your bag is empty.</div>';
+  itemsEl.querySelectorAll('[data-inc]').forEach(b => b.onclick = () => { cart[b.dataset.inc]++; save(); renderCart(); });
+  itemsEl.querySelectorAll('[data-dec]').forEach(b => b.onclick = () => { cart[b.dataset.dec] = Math.max(0, cart[b.dataset.dec] - 1); save(); renderCart(); });
+  itemsEl.querySelectorAll('[data-rm]').forEach(b => b.onclick = () => { delete cart[b.dataset.rm]; save(); renderCart(); });
+  document.getElementById('checkout').disabled = !keys.length; }
+function openBag() { drawer.classList.add('on'); scrim.classList.add('on'); drawer.setAttribute('aria-hidden', 'false'); }
+function closeBag() { drawer.classList.remove('on'); scrim.classList.remove('on'); drawer.setAttribute('aria-hidden', 'true'); }
+document.getElementById('bagBtn').addEventListener('click', openBag); document.getElementById('closeBag').addEventListener('click', closeBag); scrim.addEventListener('click', closeBag); document.addEventListener('keydown', e => { if (e.key === 'Escape') closeBag(); });
+const toastEl = document.getElementById('toast'); function toast(msg) { toastEl.textContent = msg; toastEl.classList.add('on'); clearTimeout(toastEl._t); toastEl._t = setTimeout(() => toastEl.classList.remove('on'), 1800); }
+document.getElementById('addBtn').addEventListener('click', () => { cart[sku] = (cart[sku] || 0) + qty; save(); renderCart();
+  const img = stageImg.getBoundingClientRect(), bag = document.getElementById('bagBtn').getBoundingClientRect(); const fly = stageImg.cloneNode(); fly.style.cssText = `position:fixed;left:${img.left}px;top:${img.top}px;width:${img.width}px;height:${img.height}px;z-index:99;pointer-events:none;object-fit:contain;`; document.body.appendChild(fly);
+  gsap.to(fly, { left: bag.left + bag.width / 2 - 16, top: bag.top + bag.height / 2 - 16, width: 32, height: 32, opacity: .2, duration: .9, ease: 'power3.in', onComplete: () => { fly.remove(); toast(`${plain(SKUS[sku].name)} added to bag`); setTimeout(openBag, 350); } }); });
+document.getElementById('checkout').addEventListener('click', () => toast('Checkout opens here at launch'));
+renderCart();
+document.querySelectorAll('.q').forEach(d => d.querySelector('summary').addEventListener('click', e => { e.preventDefault(); const was = d.open; document.querySelectorAll('.q').forEach(o => o.open = false); d.open = !was; }));
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .15 }); document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+gsap.from('.stage, .buy > *', { y: 24, opacity: 0, duration: 1.1, stagger: .07, ease: 'power3.out', delay: .1 });
+</script>
+</body>
+</html>
