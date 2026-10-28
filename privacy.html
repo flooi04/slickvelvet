@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy — Slick Velvet</title>
+<meta name="description" content="How Slick Velvet collects, uses and protects your personal information under POPIA, and how we keep your order discreet.">
+<link rel="icon" type="image/webp" href="assets/logo-sm.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#070308;--bg-2:#0d0509;--panel:#120812;--ink:#f6eef2;--muted:rgba(246,238,242,.55);--line:rgba(246,238,242,.09);--pink:#e4003f;--pink-2:#ff2d5e;--pink-3:#ff7a94;--serif:'Lilita One','Arial Black',sans-serif;--sans:'DM Sans',system-ui,sans-serif;color-scheme:dark}
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  body.has-cursor,body.has-cursor a,body.has-cursor button{cursor:none}
+  a{color:inherit;text-decoration:none} img{max-width:100%;display:block} button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+  :focus-visible{outline:2px solid var(--pink-2);outline-offset:4px;border-radius:4px}
+  .grain{position:fixed;inset:-50%;width:200%;height:200%;pointer-events:none;z-index:50;opacity:.045;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");animation:grain .6s steps(6) infinite}
+  @keyframes grain{0%{transform:translate(0,0)}50%{transform:translate(-8%,4%)}100%{transform:translate(5%,-6%)}}
+  .cursor{position:fixed;top:0;left:0;width:6px;height:6px;border-radius:50%;background:var(--ink);pointer-events:none;z-index:99;transform:translate(-50%,-50%)}
+  .ring{position:fixed;top:0;left:0;width:34px;height:34px;border-radius:50%;border:1px solid rgba(246,238,242,.45);pointer-events:none;z-index:99;transform:translate(-50%,-50%);transition:width .3s,height .3s,border-color .3s}
+  body.hovering .ring{width:52px;height:52px;border-color:var(--pink-2)}
+  @media (hover:none){.cursor,.ring{display:none}}
+  .gutter{padding-left:clamp(24px,4vw,64px);padding-right:clamp(24px,4vw,64px)}
+  /* nav */
+  .nav{position:fixed;top:0;left:0;right:0;z-index:60;display:flex;justify-content:space-between;align-items:center;padding:22px clamp(24px,4vw,64px);pointer-events:none}
+  .nav>*{pointer-events:auto}
+  .brand{display:flex;align-items:center;gap:12px;font-family:var(--serif);font-size:26px;line-height:1}
+  .brand img{width:30px;height:30px}
+  .nav .right{display:flex;align-items:center;gap:28px;font-size:13.5px;font-weight:500}
+  .nav .right a{opacity:.8;transition:opacity .3s} .nav .right a:hover{opacity:1}
+  .bag{display:flex;align-items:center;gap:10px}
+  .bag b{min-width:18px;height:18px;padding:0 5px;border-radius:999px;border:1px solid currentColor;font-weight:500;font-size:10px;display:grid;place-items:center}
+  .btn{display:inline-flex;align-items:center;gap:10px;padding:14px 26px;border-radius:999px;font-size:13.5px;font-weight:600;letter-spacing:.02em;white-space:nowrap;transition:background .3s,box-shadow .3s,border-color .3s}
+  .btn-pink{background:var(--pink);color:#fff} .btn-pink:hover{background:var(--pink-2);box-shadow:0 0 40px -6px rgba(228,0,63,.6)}
+  .btn-ghost{border:1px solid rgba(246,238,242,.25)} .btn-ghost:hover{border-color:var(--ink)}
+  /* shop */
+  .shop{position:relative;padding-block:16vh 10vh;background:radial-gradient(ellipse 60% 40% at 50% 0%,rgba(228,0,63,.14),transparent 70%),var(--bg)}
+  .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(32px,6vw,96px);align-items:center;max-width:1360px;margin:0 auto}
+  .stage{position:relative;aspect-ratio:1/1.1;perspective:1200px}
+  .stage .bgp{position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 85%,rgba(228,0,63,.35),transparent 70%),linear-gradient(180deg,var(--bg-2),var(--bg));border:1px solid var(--line)}
+  .stage img.shot{position:absolute;left:50%;bottom:4%;height:88%;width:auto;max-width:86%;object-fit:contain;transform:translateX(-50%);transition:opacity .5s,transform .9s cubic-bezier(.19,1,.22,1);will-change:transform;z-index:1;filter:drop-shadow(0 40px 60px rgba(0,0,0,.7))}
+  .stage img.shot.out{opacity:0;transform:translateX(-50%) scale(.95)}
+  .stage .chip{position:absolute;top:18px;left:18px;font-size:12.5px;font-weight:500;color:var(--muted);z-index:2}
+  .buy h1{font-family:var(--serif);font-weight:400;font-size:clamp(48px,5.2vw,84px);line-height:.95;letter-spacing:.01em}
+  .buy h1 em{font-style:italic;color:var(--pink-2)}
+  .price{display:flex;align-items:baseline;gap:14px;margin-top:22px}
+  .price b{font-size:24px;font-weight:500;font-variant-numeric:tabular-nums} .price span{color:var(--muted);font-size:13px}
+  .desc{margin-top:22px;color:var(--muted);font-size:17px;font-weight:300;max-width:44ch}
+  .opts{margin-top:34px} .opts .lbl{font-size:13px;font-weight:500;color:var(--muted);margin-bottom:12px}
+  .sizes{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+  .size{padding:16px 18px;background:var(--bg);text-align:left;transition:background .3s,color .3s;display:grid;gap:4px}
+  .size b{font-weight:600;font-size:14.5px} .size span{font-size:12.5px;color:var(--muted)}
+  .size:hover{background:var(--bg-2)} .size[aria-pressed="true"]{background:var(--ink);color:var(--bg)} .size[aria-pressed="true"] span{color:rgba(7,3,8,.6)}
+  .row{display:flex;align-items:center;gap:12px;margin-top:26px;flex-wrap:wrap}
+  .qty{display:inline-flex;align-items:center;border:1px solid rgba(246,238,242,.2);border-radius:999px}
+  .qty button{width:44px;height:46px;font-size:18px;color:var(--muted)} .qty button:hover{color:var(--ink)}
+  .qty output{min-width:28px;text-align:center;font-size:14px;font-weight:500}
+  .add{padding:16px 30px}
+  .trust{margin-top:30px;display:grid;gap:8px;font-size:14px;color:var(--muted);list-style:none}
+  .trust li{padding-left:16px;position:relative} .trust li::before{content:'';position:absolute;left:0;top:10px;width:5px;height:5px;border-radius:50%;background:var(--pink-2)}
+  .facts{max-width:1360px;margin:12vh auto 0;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}
+  .fact{padding:32px 28px 36px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .fact h3{font-family:var(--serif);font-weight:400;font-size:24px;line-height:1.02} .fact p{margin-top:12px;color:var(--muted);font-size:14.5px;font-weight:300}
+  .faq{padding-block:14vh;max-width:1360px;margin:0 auto;display:grid;grid-template-columns:1fr 1.4fr;gap:clamp(32px,6vw,96px);align-items:start}
+  .faq h2{font-family:var(--serif);font-weight:400;font-size:clamp(40px,4.4vw,68px);line-height:.95;position:sticky;top:120px} .faq h2 em{font-style:italic;color:var(--pink-2)}
+  .q{border-top:1px solid var(--line)} .q:last-child{border-bottom:1px solid var(--line)}
+  .q button{width:100%;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:24px 0;text-align:left;font-family:var(--serif);font-size:20px}
+  .q button i{width:28px;height:28px;border-radius:50%;border:1px solid rgba(246,238,242,.2);display:grid;place-items:center;font-style:normal;font-size:16px;transition:transform .4s,background .3s;flex:none}
+  .q[open] button i{transform:rotate(45deg);background:var(--ink);color:var(--bg)}
+  .q .a{max-height:0;overflow:hidden;transition:max-height .5s cubic-bezier(.19,1,.22,1)} .q[open] .a{max-height:220px}
+  .q .a p{padding:0 48px 24px 0;color:var(--muted);font-size:16px;font-weight:300;max-width:60ch}
+  footer{padding-block:64px 32px;border-top:1px solid var(--line)}
+  .foot{max-width:1360px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px}
+  .foot h4{font-size:13px;font-weight:600;margin-bottom:18px} .foot ul{list-style:none;display:grid;gap:10px;font-size:15px;font-weight:300} .foot ul a:hover{color:var(--pink-2)}
+  .foot .about{display:grid;gap:18px;align-content:start} .foot .about img{width:56px} .foot .about p{color:var(--muted);font-size:15px;font-weight:300;max-width:34ch}
+  .legal{max-width:1360px;margin:48px auto 0;padding-top:22px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;justify-content:space-between;gap:14px;font-size:12.5px;color:var(--muted)}
+  .legal .ecta{width:100%;line-height:1.8} .legal .ecta em{color:var(--pink-3);font-style:normal}
+  /* gallery */
+  .gallery{padding-block:4vh 6vh;max-width:1360px;margin:0 auto}
+  .ghead{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:28px;flex-wrap:wrap}
+  .ghead h2{font-family:var(--serif);font-weight:400;font-size:clamp(38px,4.2vw,64px);line-height:.95} .ghead h2 em{font-style:italic;color:var(--pink-2)}
+  .ghead p{color:var(--muted);font-weight:300;max-width:34ch;font-size:15px}
+  .ggrid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:minmax(180px,22vw);gap:12px}
+  .ggrid figure{position:relative;overflow:hidden;background:var(--bg-2);border:1px solid var(--line)}
+  .ggrid figure img{width:100%;height:100%;object-fit:cover;display:block;transform:scale(1.04);transition:transform 1.4s cubic-bezier(.19,1,.22,1),filter .6s;filter:saturate(.96)}
+  .ggrid figure:hover img{transform:scale(1.1);filter:saturate(1.05)}
+  .ggrid figcaption{position:absolute;left:16px;bottom:14px;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:rgba(246,238,242,.8);text-shadow:0 1px 12px rgba(0,0,0,.8);opacity:0;transform:translateY(6px);transition:opacity .5s,transform .5s}
+  .ggrid figure:hover figcaption{opacity:1;transform:none}
+  .ggrid .big{grid-column:span 2;grid-row:span 2}
+  .ggrid .tall{grid-row:span 2}
+  .reveal{opacity:0;transform:translateY(28px)} .reveal.in{opacity:1;transform:none;transition:opacity 1.1s cubic-bezier(.19,1,.22,1),transform 1.1s cubic-bezier(.19,1,.22,1)}
+  .strip{overflow:hidden;margin:0 calc(-1*clamp(24px,4vw,64px)) 34px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+  .strip .track{display:flex;gap:12px;width:max-content;animation:strip 90s linear infinite} .strip:hover .track{animation-play-state:paused}
+  .strip img{height:clamp(200px,26vw,340px);aspect-ratio:4/5;object-fit:cover;border:1px solid var(--line);display:block}
+  @keyframes strip{to{transform:translateX(-50%)}}
+  @media (prefers-reduced-motion:reduce){.strip .track{animation:none}}
+  /* bag */
+  .scrim{position:fixed;inset:0;background:rgba(7,3,8,.6);backdrop-filter:blur(6px);opacity:0;pointer-events:none;transition:opacity .4s;z-index:80} .scrim.on{opacity:1;pointer-events:auto}
+  .drawer{position:fixed;top:0;right:0;bottom:0;width:min(440px,100vw);background:var(--bg-2);border-left:1px solid var(--line);z-index:90;transform:translateX(104%);transition:transform .6s cubic-bezier(.19,1,.22,1);display:grid;grid-template-rows:auto 1fr auto}
+  .drawer.on{transform:translateX(0)}
+  .drawer header{display:flex;justify-content:space-between;align-items:center;padding:26px 24px 18px;border-bottom:1px solid var(--line)}
+  .drawer header h3{font-family:var(--serif);font-weight:400;font-size:30px}
+  .drawer header button{width:36px;height:36px;border-radius:50%;border:1px solid rgba(246,238,242,.2);font-size:18px}
+  .drawer .items{padding:18px 24px;overflow:auto;display:grid;gap:1px;align-content:start} .drawer .empty{color:var(--muted);font-size:15px;padding:24px 0;font-weight:300}
+  .item{display:grid;grid-template-columns:72px 1fr auto;gap:14px;align-items:center;padding:14px 0;border-bottom:1px solid var(--line)}
+  .item .th{width:72px;height:84px;background:radial-gradient(ellipse at 50% 80%,rgba(228,0,63,.3),var(--panel) 70%);display:grid;place-items:center;overflow:hidden} .item .th img{height:78%;width:auto}
+  .item b{font-weight:600;font-size:14.5px;display:block} .item small{font-size:12.5px;color:var(--muted)}
+  .item .ctl{display:grid;gap:6px;justify-items:end} .item .ctl .qty button{width:30px;height:32px;font-size:16px} .item .ctl .qty output{min-width:22px;font-size:12px}
+  .item .ctl .rm{font-size:12px;color:var(--muted)} .item .ctl .rm:hover{color:var(--pink-2)}
+  .drawer footer{padding:18px 24px 24px;display:grid;gap:14px;border:0;border-top:1px solid var(--line)}
+  .ship{font-size:13px;color:var(--muted)} .ship .track{height:1px;background:var(--line);margin-top:10px;overflow:hidden} .ship .track i{display:block;height:100%;width:0;background:var(--pink-2);transition:width .6s cubic-bezier(.19,1,.22,1)}
+  .subt{display:flex;justify-content:space-between;align-items:baseline} .subt span{font-size:13px;color:var(--muted)} .subt b{font-size:22px;font-weight:500}
+  .checkout{width:100%;justify-content:center;padding:18px} .note{font-size:12px;color:var(--muted);text-align:center;font-weight:300}
+  .toast{position:fixed;left:50%;bottom:28px;transform:translate(-50%,20px);padding:12px 20px;border-radius:999px;background:var(--ink);color:var(--bg);font-size:13.5px;font-weight:600;opacity:0;pointer-events:none;transition:opacity .3s,transform .4s cubic-bezier(.19,1,.22,1);z-index:95}
+  .toast.on{opacity:1;transform:translate(-50%,0)}
+  /* age gate (compact) */
+  .gate{position:fixed;inset:0;z-index:100;background:var(--bg);display:grid;place-items:center;text-align:center}
+  .gate::before{content:'';position:absolute;inset:-20%;background:radial-gradient(ellipse 42% 36% at 50% 56%,rgba(228,0,63,.3),transparent 70%)}
+  .gate .in{position:relative;display:flex;flex-direction:column;align-items:center;gap:16px}
+  .gate img{width:96px;filter:drop-shadow(0 0 28px rgba(228,0,63,.45))}
+  .gate h2{font-family:var(--serif);font-weight:400;font-size:clamp(40px,6vw,72px);line-height:.95} .gate h2 em{font-style:italic;color:var(--pink-2)}
+  .gate .age{display:flex;align-items:center;gap:10px;font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+  .gate .age b{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:50%;border:1.5px solid var(--pink-2);color:var(--pink-2);font-weight:600;font-size:10px;letter-spacing:0}
+  .gate .leave{font-size:12px;color:var(--muted);opacity:.7}
+  .gate.off{display:none}
+  @media (max-width:1100px){.ggrid{grid-template-columns:repeat(2,1fr);grid-auto-rows:minmax(160px,40vw)}.ggrid .big{grid-column:span 2;grid-row:span 1}.ggrid .tall{grid-row:span 1}.wrap,.faq{grid-template-columns:1fr}.faq h2{position:static}.sizes{grid-template-columns:1fr}.facts{grid-template-columns:1fr 1fr}}
+  @media (max-width:760px){.foot,.facts{grid-template-columns:1fr}}
+  h1,h2,h3,.pre .word,.co h3,.end h2,.cap h2,.title h1,.buy h1,.fact h3,.faq h2,.ghead h2,.q button,.drawer header h3{text-transform:uppercase;letter-spacing:.01em}
+  em{font-style:normal!important}
+  @media (max-width:760px){.nav{padding:16px 20px}.brand{font-size:18px;gap:8px;white-space:nowrap}.brand img{width:26px;height:26px}.nav .right{gap:14px;font-size:12.5px}}
+  .snd{display:flex;align-items:center;gap:8px;font-size:12.5px;font-weight:500;color:var(--muted)} .snd:hover{color:var(--ink)} .snd i{display:inline-block;width:12px;height:12px;border-radius:50%;border:1px solid currentColor;position:relative} .snd i::after{content:'';position:absolute;inset:3px;border-radius:50%;background:currentColor;opacity:0;transition:opacity .3s} .snd.on i::after{opacity:1}
+  @media (max-width:760px){.snd span{display:none}}
+</style>
+<style>
+  .legal-hero{padding-block:16vh 4vh;max-width:1360px;margin:0 auto}
+  .legal-hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(44px,6vw,96px);line-height:.95} .legal-hero h1 em{color:var(--pink-2)}
+  .legal-hero p{margin-top:16px;color:var(--muted);font-size:17px;font-weight:300;max-width:62ch}
+  .meta{margin-top:18px;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+  .doc{max-width:1360px;margin:0 auto;display:grid;grid-template-columns:260px 1fr;gap:clamp(32px,6vw,96px);padding-block:4vh 12vh;align-items:start}
+  .toc{position:sticky;top:110px;display:grid;gap:6px;font-size:14px}
+  .toc a{color:var(--muted);padding:6px 0;border-bottom:1px solid transparent;transition:color .3s} .toc a:hover,.toc a.cur{color:var(--ink)}
+  .body{max-width:72ch}
+  .body h2{font-family:var(--serif);font-weight:400;font-size:28px;line-height:1.05;margin:46px 0 14px;padding-top:18px;border-top:1px solid var(--line)} .body h2:first-child{margin-top:0;border:0;padding-top:0}
+  .body p,.body li{color:rgba(246,238,242,.78);font-size:16px;font-weight:300;line-height:1.7}
+  .body p+p{margin-top:12px} .body ul,.body ol{padding-left:22px;margin:10px 0} .body li+li{margin-top:6px}
+  .body b{color:var(--ink);font-weight:500} .body a{color:var(--pink-2);border-bottom:1px solid rgba(255,45,94,.35)}
+  .ph{color:var(--pink-3);font-style:normal}
+  .body table{width:100%;border-collapse:collapse;margin:14px 0;font-size:15px} .body th,.body td{text-align:left;padding:12px 14px;border:1px solid var(--line);vertical-align:top;font-weight:300;color:rgba(246,238,242,.8)} .body th{color:var(--ink);font-weight:500;background:var(--bg-2)}
+  @media (max-width:900px){.doc{grid-template-columns:1fr}.toc{position:static;display:flex;flex-wrap:wrap;gap:4px 16px;margin-bottom:10px}}
+</style>
+</head>
+<body>
+<div class="gate off" id="gate"><div class="in"><img src="assets/logo.webp" alt=""><h2>Slick <em>Velvet</em></h2><div class="age"><b>18+</b>For adults only</div><a class="btn btn-pink" id="gateBtn" href="#" data-hover>I'm 18 or older — enter</a><a class="leave" href="https://www.google.com">I'm under 18</a></div></div>
+<div class="cursor" id="cur"></div><div class="ring" id="ring"></div>
+<div class="grain"></div>
+<nav class="nav" aria-label="Main">
+  <a class="brand" href="index.html" data-hover><img src="assets/logo-sm.webp" alt="">Slick Velvet</a>
+  <div class="right"><button class="snd" data-sound data-hover aria-label="Toggle sound"><i></i><span>Sound on</span></button><a href="index.html" data-hover>Home</a><a href="shop.html" data-hover>Shop</a><a href="delivery.html" data-hover>Delivery</a></div>
+</nav>
+<main>
+<section class="legal-hero gutter"><h1>Privacy <em>Policy.</em></h1><p>What we collect, why, who sees it, and how we keep your order between you and us. Written to comply with POPIA.</p><div class="meta">Last updated 28 October 2026 · Applies to slickvelvet.co.za</div></section>
+<section class="doc gutter"><nav class="toc" aria-label="On this page"><a href="#who" data-hover>1. Who is responsible for your information</a><a href="#collect" data-hover>2. What we collect</a><a href="#why" data-hover>3. Why we use it, and the lawful basis</a><a href="#discreet" data-hover>4. Discretion by design</a><a href="#share" data-hover>5. Who we share it with</a><a href="#cookies" data-hover>6. Cookies and local storage</a><a href="#keep" data-hover>7. How long we keep it</a><a href="#security" data-hover>8. How we protect it</a><a href="#rights" data-hover>9. Your rights</a><a href="#children" data-hover>10. Children</a><a href="#changes" data-hover>11. Changes to this policy</a><a href="#contact" data-hover>12. Contact</a></nav><div class="body"><h2 id="who">1. Who is responsible for your information</h2><p>The responsible party under the Protection of Personal Information Act 4 of 2013 (POPIA) is <b><em class="ph">[Registered business name (Pty) Ltd]</em></b>, trading as Slick Velvet, registration number <em class="ph">[reg. no.]</em>, of <em class="ph">[Physical address, Cape Town]</em>.</p><p>Our Information Officer is <b><em class="ph">[Name]</em></b>, reachable at <em class="ph">[privacy@slickvelvet.co.za]</em>. Contact them for anything in this policy.</p><h2 id="collect">2. What we collect</h2><p>We collect only what we need to sell and deliver our products:</p><ul><li><b>Order details</b> — name, delivery address, email address, phone number, what you bought and when.</li><li><b>Payment</b> — handled entirely by our payment provider over an encrypted connection. We receive confirmation that you paid and the last four digits of your card; we never see or store your full card number.</li><li><b>Account details</b> if you create one — email, password (stored hashed), order history.</li><li><b>Messages</b> you send us by email or WhatsApp.</li><li><b>Technical data</b> — IP address, device and browser type, pages visited, collected by our hosting provider and basic analytics to keep the Site secure and working.</li></ul><p>We do not collect special personal information (such as health or sexual-life information) and we do not ask for it. Buying a product from us is not recorded as anything other than an order.</p><h2 id="why">3. Why we use it, and the lawful basis</h2><table><tr><th>Purpose</th><th>Basis under POPIA</th></tr><tr><td>Processing and delivering your order, sending the confirmation email and tracking SMS</td><td>Performance of our contract with you</td></tr><tr><td>Handling returns, refunds, complaints and warranty claims</td><td>Contract and legal obligation (CPA, ECTA)</td></tr><tr><td>Keeping tax and accounting records</td><td>Legal obligation</td></tr><tr><td>Preventing fraud and keeping the Site secure</td><td>Our legitimate interests</td></tr><tr><td>Marketing emails or messages</td><td><b>Your consent only</b> — we never send marketing unless you opt in, and you can opt out at any time</td></tr></table><h2 id="discreet">4. Discretion by design</h2><p>Because of what we sell, we go further than the law requires:</p><ul><li>Parcels are plain and unbranded; the sender shows as <em class="ph">[neutral trading name]</em> and the contents as "personal care".</li><li>Your bank or card statement shows <em class="ph">[neutral merchant name]</em>, never "Slick Velvet" or the product.</li><li>Order confirmation emails have a neutral subject line and sender name.</li><li>We send no marketing unless you ask for it, and no post other than your parcel.</li><li>We never sell, rent or share customer lists with anyone.</li></ul><h2 id="share">5. Who we share it with</h2><p>Only the operators we need to get your order to you, each bound by contract to protect your information and use it for that purpose alone:</p><ul><li><b>Courier</b> — <em class="ph">[courier name]</em>: name, address, phone number for delivery and tracking.</li><li><b>Payment provider</b> — <em class="ph">[PayFast / Yoco]</em>: processes your payment under its own privacy policy.</li><li><b>Hosting and email</b> — Vercel (website hosting) and <em class="ph">[email provider]</em> (order emails). Some of these providers store data outside South Africa, in countries with privacy laws that offer similar protection, as permitted by section 72 of POPIA.</li><li><b>Authorities</b> — only where the law requires it.</li></ul><h2 id="cookies">6. Cookies and local storage</h2><p>The Site uses a small amount of browser storage to remember that you confirmed you are over 18, your sound preference, and what is in your bag. These stay on your device and are not sent to us. We use no advertising or tracking cookies. Our hosting provider records basic, aggregated visit statistics (page views, country) that do not identify you.</p><h2 id="keep">7. How long we keep it</h2><ul><li>Order and invoice records: <b>5 years</b> after the order, as required by South African tax law.</li><li>Account details: until you delete your account, or after 3 years of inactivity.</li><li>Messages and complaints: 2 years after they are resolved.</li><li>Technical logs: 90 days.</li></ul><p>After that, information is deleted or anonymised.</p><h2 id="security">8. How we protect it</h2><p>The Site is served over HTTPS. Payments are processed by a PCI-DSS compliant provider. Access to order information is limited to the people who pack and support orders, and is password-protected. If a breach ever affects your information we will notify you and the Information Regulator as POPIA requires.</p><h2 id="rights">9. Your rights</h2><p>Under POPIA you may, free of charge:</p><ul><li>ask what personal information we hold about you and get a copy;</li><li>ask us to correct or delete it;</li><li>object to processing based on our legitimate interests;</li><li>withdraw consent to marketing at any time;</li><li>complain to the <b>Information Regulator</b>: <a href="https://inforegulator.org.za" data-hover>inforegulator.org.za</a>, JD House, 27 Stiemens Street, Braamfontein, Johannesburg, 2001, or via its online complaints portal.</li></ul><p>To exercise a right, email our Information Officer at <em class="ph">[privacy@slickvelvet.co.za]</em>. We respond within 30 days and may ask you to confirm your identity first. Our PAIA manual is available on request.</p><h2 id="children">10. Children</h2><p>The Site and our products are for adults 18 and over. We do not knowingly collect information from anyone under 18. If you believe a minor has given us information, contact us and we will delete it.</p><h2 id="changes">11. Changes to this policy</h2><p>We will post any changes here and update the date at the top. If a change materially affects how we use your information we will email customers who have an account.</p><h2 id="contact">12. Contact</h2><p>Slick Velvet · <em class="ph">[Registered business name (Pty) Ltd]</em> · <em class="ph">[Physical address, Cape Town]</em> · <em class="ph">[privacy@slickvelvet.co.za]</em> · <em class="ph">[+27 …]</em></p></div></section>
+</main>
+<footer class="gutter">
+  <div class="foot">
+    <div class="about"><img src="assets/logo-sm.webp" alt="Slick Velvet"><p>Personal lubricant made in Cape Town and shipped discreetly across South Africa.</p><ul style="display:flex;gap:18px"><li><a href="#" data-hover>Instagram</a></li><li><a href="#" data-hover>TikTok</a></li></ul></div>
+    <div><h4>Shop</h4><ul><li><a href="shop.html#shop" data-hover>The Pump</a></li><li><a href="shop.html#shop" data-hover>The Travel</a></li><li><a href="shop.html#shop" data-hover>The Duo</a></li></ul></div>
+    <div><h4>Help</h4><ul><li><a href="shop.html#faq" data-hover>FAQ</a></li><li><a href="delivery.html" data-hover>Delivery &amp; discretion</a></li><li><a href="terms.html#disputes" data-hover>Contact</a></li></ul></div>
+    <div><h4>Legal</h4><ul><li><a href="privacy.html" data-hover>Privacy policy</a></li><li><a href="terms.html" data-hover>Terms &amp; conditions</a></li></ul></div>
+  </div>
+  <div class="legal"><div class="ecta"><em>[Registered business name (Pty) Ltd · Reg. no.]</em> · <em>[Physical address, Cape Town]</em> · <em>[hello@slickvelvet.co.za · +27 …]</em> · Prices in ZAR incl. VAT · For adults 18+</div><span>© 2026 Slick Velvet</span><span>slickvelvet.co.za</span></div>
+</footer>
+<script src="sound.js"></script>
+<script type="module">
+import gsap from 'https://cdn.jsdelivr.net/npm/gsap@3.12.5/index.js';
+const isTouch = matchMedia('(hover:none)').matches; if (!isTouch) document.body.classList.add('has-cursor');
+SVSound.auto();
+let ok = false; try { ok = localStorage.getItem('sv18') === '1'; } catch {}
+const gate = document.getElementById('gate'); if (!ok) gate.classList.remove('off');
+document.getElementById('gateBtn').addEventListener('click', e => { e.preventDefault(); try { localStorage.setItem('sv18', '1'); } catch {} gsap.to(gate, { opacity: 0, duration: .6, onComplete: () => gate.classList.add('off') }); });
+const cur = document.getElementById('cur'), ring = document.getElementById('ring'); const m = { x: innerWidth / 2, y: innerHeight / 2 }; let rx = m.x, ry = m.y;
+window.addEventListener('pointermove', e => { m.x = e.clientX; m.y = e.clientY; });
+gsap.ticker.add(() => { rx += (m.x - rx) * .14; ry += (m.y - ry) * .14; cur.style.transform = `translate(${m.x}px,${m.y}px) translate(-50%,-50%)`; ring.style.transform = `translate(${rx}px,${ry}px) translate(-50%,-50%)`; });
+document.querySelectorAll('[data-hover]').forEach(el => { el.addEventListener('pointerenter', () => document.body.classList.add('hovering')); el.addEventListener('pointerleave', () => document.body.classList.remove('hovering')); });
+const links = [...document.querySelectorAll('.toc a')], heads = links.map(a => document.querySelector(a.getAttribute('href')));
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { links.forEach(a => a.classList.toggle('cur', a.getAttribute('href') === '#' + e.target.id)); } }), { rootMargin: '-20% 0px -70% 0px' }); heads.forEach(h => h && io.observe(h));
+</script>
+</body>
+</html>

@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Terms & Conditions — Slick Velvet</title>
+<meta name="description" content="Terms and conditions of sale for slickvelvet.co.za: prices, delivery, 7-day cooling-off, returns and your rights under South African law.">
+<link rel="icon" type="image/webp" href="assets/logo-sm.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#070308;--bg-2:#0d0509;--panel:#120812;--ink:#f6eef2;--muted:rgba(246,238,242,.55);--line:rgba(246,238,242,.09);--pink:#e4003f;--pink-2:#ff2d5e;--pink-3:#ff7a94;--serif:'Lilita One','Arial Black',sans-serif;--sans:'DM Sans',system-ui,sans-serif;color-scheme:dark}
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  body.has-cursor,body.has-cursor a,body.has-cursor button{cursor:none}
+  a{color:inherit;text-decoration:none} img{max-width:100%;display:block} button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+  :focus-visible{outline:2px solid var(--pink-2);outline-offset:4px;border-radius:4px}
+  .grain{position:fixed;inset:-50%;width:200%;height:200%;pointer-events:none;z-index:50;opacity:.045;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");animation:grain .6s steps(6) infinite}
+  @keyframes grain{0%{transform:translate(0,0)}50%{transform:translate(-8%,4%)}100%{transform:translate(5%,-6%)}}
+  .cursor{position:fixed;top:0;left:0;width:6px;height:6px;border-radius:50%;background:var(--ink);pointer-events:none;z-index:99;transform:translate(-50%,-50%)}
+  .ring{position:fixed;top:0;left:0;width:34px;height:34px;border-radius:50%;border:1px solid rgba(246,238,242,.45);pointer-events:none;z-index:99;transform:translate(-50%,-50%);transition:width .3s,height .3s,border-color .3s}
+  body.hovering .ring{width:52px;height:52px;border-color:var(--pink-2)}
+  @media (hover:none){.cursor,.ring{display:none}}
+  .gutter{padding-left:clamp(24px,4vw,64px);padding-right:clamp(24px,4vw,64px)}
+  /* nav */
+  .nav{position:fixed;top:0;left:0;right:0;z-index:60;display:flex;justify-content:space-between;align-items:center;padding:22px clamp(24px,4vw,64px);pointer-events:none}
+  .nav>*{pointer-events:auto}
+  .brand{display:flex;align-items:center;gap:12px;font-family:var(--serif);font-size:26px;line-height:1}
+  .brand img{width:30px;height:30px}
+  .nav .right{display:flex;align-items:center;gap:28px;font-size:13.5px;font-weight:500}
+  .nav .right a{opacity:.8;transition:opacity .3s} .nav .right a:hover{opacity:1}
+  .bag{display:flex;align-items:center;gap:10px}
+  .bag b{min-width:18px;height:18px;padding:0 5px;border-radius:999px;border:1px solid currentColor;font-weight:500;font-size:10px;display:grid;place-items:center}
+  .btn{display:inline-flex;align-items:center;gap:10px;padding:14px 26px;border-radius:999px;font-size:13.5px;font-weight:600;letter-spacing:.02em;white-space:nowrap;transition:background .3s,box-shadow .3s,border-color .3s}
+  .btn-pink{background:var(--pink);color:#fff} .btn-pink:hover{background:var(--pink-2);box-shadow:0 0 40px -6px rgba(228,0,63,.6)}
+  .btn-ghost{border:1px solid rgba(246,238,242,.25)} .btn-ghost:hover{border-color:var(--ink)}
+  /* shop */
+  .shop{position:relative;padding-block:16vh 10vh;background:radial-gradient(ellipse 60% 40% at 50% 0%,rgba(228,0,63,.14),transparent 70%),var(--bg)}
+  .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(32px,6vw,96px);align-items:center;max-width:1360px;margin:0 auto}
+  .stage{position:relative;aspect-ratio:1/1.1;perspective:1200px}
+  .stage .bgp{position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 85%,rgba(228,0,63,.35),transparent 70%),linear-gradient(180deg,var(--bg-2),var(--bg));border:1px solid var(--line)}
+  .stage img.shot{position:absolute;left:50%;bottom:4%;height:88%;width:auto;max-width:86%;object-fit:contain;transform:translateX(-50%);transition:opacity .5s,transform .9s cubic-bezier(.19,1,.22,1);will-change:transform;z-index:1;filter:drop-shadow(0 40px 60px rgba(0,0,0,.7))}
+  .stage img.shot.out{opacity:0;transform:translateX(-50%) scale(.95)}
+  .stage .chip{position:absolute;top:18px;left:18px;font-size:12.5px;font-weight:500;color:var(--muted);z-index:2}
+  .buy h1{font-family:var(--serif);font-weight:400;font-size:clamp(48px,5.2vw,84px);line-height:.95;letter-spacing:.01em}
+  .buy h1 em{font-style:italic;color:var(--pink-2)}
+  .price{display:flex;align-items:baseline;gap:14px;margin-top:22px}
+  .price b{font-size:24px;font-weight:500;font-variant-numeric:tabular-nums} .price span{color:var(--muted);font-size:13px}
+  .desc{margin-top:22px;color:var(--muted);font-size:17px;font-weight:300;max-width:44ch}
+  .opts{margin-top:34px} .opts .lbl{font-size:13px;font-weight:500;color:var(--muted);margin-bottom:12px}
+  .sizes{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+  .size{padding:16px 18px;background:var(--bg);text-align:left;transition:background .3s,color .3s;display:grid;gap:4px}
+  .size b{font-weight:600;font-size:14.5px} .size span{font-size:12.5px;color:var(--muted)}
+  .size:hover{background:var(--bg-2)} .size[aria-pressed="true"]{background:var(--ink);color:var(--bg)} .size[aria-pressed="true"] span{color:rgba(7,3,8,.6)}
+  .row{display:flex;align-items:center;gap:12px;margin-top:26px;flex-wrap:wrap}
+  .qty{display:inline-flex;align-items:center;border:1px solid rgba(246,238,242,.2);border-radius:999px}
+  .qty button{width:44px;height:46px;font-size:18px;color:var(--muted)} .qty button:hover{color:var(--ink)}
+  .qty output{min-width:28px;text-align:center;font-size:14px;font-weight:500}
+  .add{padding:16px 30px}
+  .trust{margin-top:30px;display:grid;gap:8px;font-size:14px;color:var(--muted);list-style:none}
+  .trust li{padding-left:16px;position:relative} .trust li::before{content:'';position:absolute;left:0;top:10px;width:5px;height:5px;border-radius:50%;background:var(--pink-2)}
+  .facts{max-width:1360px;margin:12vh auto 0;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}
+  .fact{padding:32px 28px 36px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .fact h3{font-family:var(--serif);font-weight:400;font-size:24px;line-height:1.02} .fact p{margin-top:12px;color:var(--muted);font-size:14.5px;font-weight:300}
+  .faq{padding-block:14vh;max-width:1360px;margin:0 auto;display:grid;grid-template-columns:1fr 1.4fr;gap:clamp(32px,6vw,96px);align-items:start}
+  .faq h2{font-family:var(--serif);font-weight:400;font-size:clamp(40px,4.4vw,68px);line-height:.95;position:sticky;top:120px} .faq h2 em{font-style:italic;color:var(--pink-2)}
+  .q{border-top:1px solid var(--line)} .q:last-child{border-bottom:1px solid var(--line)}
+  .q button{width:100%;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:24px 0;text-align:left;font-family:var(--serif);font-size:20px}
+  .q button i{width:28px;height:28px;border-radius:50%;border:1px solid rgba(246,238,242,.2);display:grid;place-items:center;font-style:normal;font-size:16px;transition:transform .4s,background .3s;flex:none}
+  .q[open] button i{transform:rotate(45deg);background:var(--ink);color:var(--bg)}
+  .q .a{max-height:0;overflow:hidden;transition:max-height .5s cubic-bezier(.19,1,.22,1)} .q[open] .a{max-height:220px}
+  .q .a p{padding:0 48px 24px 0;color:var(--muted);font-size:16px;font-weight:300;max-width:60ch}
+  footer{padding-block:64px 32px;border-top:1px solid var(--line)}
+  .foot{max-width:1360px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px}
+  .foot h4{font-size:13px;font-weight:600;margin-bottom:18px} .foot ul{list-style:none;display:grid;gap:10px;font-size:15px;font-weight:300} .foot ul a:hover{color:var(--pink-2)}
+  .foot .about{display:grid;gap:18px;align-content:start} .foot .about img{width:56px} .foot .about p{color:var(--muted);font-size:15px;font-weight:300;max-width:34ch}
+  .legal{max-width:1360px;margin:48px auto 0;padding-top:22px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;justify-content:space-between;gap:14px;font-size:12.5px;color:var(--muted)}
+  .legal .ecta{width:100%;line-height:1.8} .legal .ecta em{color:var(--pink-3);font-style:normal}
+  /* gallery */
+  .gallery{padding-block:4vh 6vh;max-width:1360px;margin:0 auto}
+  .ghead{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:28px;flex-wrap:wrap}
+  .ghead h2{font-family:var(--serif);font-weight:400;font-size:clamp(38px,4.2vw,64px);line-height:.95} .ghead h2 em{font-style:italic;color:var(--pink-2)}
+  .ghead p{color:var(--muted);font-weight:300;max-width:34ch;font-size:15px}
+  .ggrid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:minmax(180px,22vw);gap:12px}
+  .ggrid figure{position:relative;overflow:hidden;background:var(--bg-2);border:1px solid var(--line)}
+  .ggrid figure img{width:100%;height:100%;object-fit:cover;display:block;transform:scale(1.04);transition:transform 1.4s cubic-bezier(.19,1,.22,1),filter .6s;filter:saturate(.96)}
+  .ggrid figure:hover img{transform:scale(1.1);filter:saturate(1.05)}
+  .ggrid figcaption{position:absolute;left:16px;bottom:14px;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:rgba(246,238,242,.8);text-shadow:0 1px 12px rgba(0,0,0,.8);opacity:0;transform:translateY(6px);transition:opacity .5s,transform .5s}
+  .ggrid figure:hover figcaption{opacity:1;transform:none}
+  .ggrid .big{grid-column:span 2;grid-row:span 2}
+  .ggrid .tall{grid-row:span 2}
+  .reveal{opacity:0;transform:translateY(28px)} .reveal.in{opacity:1;transform:none;transition:opacity 1.1s cubic-bezier(.19,1,.22,1),transform 1.1s cubic-bezier(.19,1,.22,1)}
+  .strip{overflow:hidden;margin:0 calc(-1*clamp(24px,4vw,64px)) 34px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+  .strip .track{display:flex;gap:12px;width:max-content;animation:strip 90s linear infinite} .strip:hover .track{animation-play-state:paused}
+  .strip img{height:clamp(200px,26vw,340px);aspect-ratio:4/5;object-fit:cover;border:1px solid var(--line);display:block}
+  @keyframes strip{to{transform:translateX(-50%)}}
+  @media (prefers-reduced-motion:reduce){.strip .track{animation:none}}
+  /* bag */
+  .scrim{position:fixed;inset:0;background:rgba(7,3,8,.6);backdrop-filter:blur(6px);opacity:0;pointer-events:none;transition:opacity .4s;z-index:80} .scrim.on{opacity:1;pointer-events:auto}
+  .drawer{position:fixed;top:0;right:0;bottom:0;width:min(440px,100vw);background:var(--bg-2);border-left:1px solid var(--line);z-index:90;transform:translateX(104%);transition:transform .6s cubic-bezier(.19,1,.22,1);display:grid;grid-template-rows:auto 1fr auto}
+  .drawer.on{transform:translateX(0)}
+  .drawer header{display:flex;justify-content:space-between;align-items:center;padding:26px 24px 18px;border-bottom:1px solid var(--line)}
+  .drawer header h3{font-family:var(--serif);font-weight:400;font-size:30px}
+  .drawer header button{width:36px;height:36px;border-radius:50%;border:1px solid rgba(246,238,242,.2);font-size:18px}
+  .drawer .items{padding:18px 24px;overflow:auto;display:grid;gap:1px;align-content:start} .drawer .empty{color:var(--muted);font-size:15px;padding:24px 0;font-weight:300}
+  .item{display:grid;grid-template-columns:72px 1fr auto;gap:14px;align-items:center;padding:14px 0;border-bottom:1px solid var(--line)}
+  .item .th{width:72px;height:84px;background:radial-gradient(ellipse at 50% 80%,rgba(228,0,63,.3),var(--panel) 70%);display:grid;place-items:center;overflow:hidden} .item .th img{height:78%;width:auto}
+  .item b{font-weight:600;font-size:14.5px;display:block} .item small{font-size:12.5px;color:var(--muted)}
+  .item .ctl{display:grid;gap:6px;justify-items:end} .item .ctl .qty button{width:30px;height:32px;font-size:16px} .item .ctl .qty output{min-width:22px;font-size:12px}
+  .item .ctl .rm{font-size:12px;color:var(--muted)} .item .ctl .rm:hover{color:var(--pink-2)}
+  .drawer footer{padding:18px 24px 24px;display:grid;gap:14px;border:0;border-top:1px solid var(--line)}
+  .ship{font-size:13px;color:var(--muted)} .ship .track{height:1px;background:var(--line);margin-top:10px;overflow:hidden} .ship .track i{display:block;height:100%;width:0;background:var(--pink-2);transition:width .6s cubic-bezier(.19,1,.22,1)}
+  .subt{display:flex;justify-content:space-between;align-items:baseline} .subt span{font-size:13px;color:var(--muted)} .subt b{font-size:22px;font-weight:500}
+  .checkout{width:100%;justify-content:center;padding:18px} .note{font-size:12px;color:var(--muted);text-align:center;font-weight:300}
+  .toast{position:fixed;left:50%;bottom:28px;transform:translate(-50%,20px);padding:12px 20px;border-radius:999px;background:var(--ink);color:var(--bg);font-size:13.5px;font-weight:600;opacity:0;pointer-events:none;transition:opacity .3s,transform .4s cubic-bezier(.19,1,.22,1);z-index:95}
+  .toast.on{opacity:1;transform:translate(-50%,0)}
+  /* age gate (compact) */
+  .gate{position:fixed;inset:0;z-index:100;background:var(--bg);display:grid;place-items:center;text-align:center}
+  .gate::before{content:'';position:absolute;inset:-20%;background:radial-gradient(ellipse 42% 36% at 50% 56%,rgba(228,0,63,.3),transparent 70%)}
+  .gate .in{position:relative;display:flex;flex-direction:column;align-items:center;gap:16px}
+  .gate img{width:96px;filter:drop-shadow(0 0 28px rgba(228,0,63,.45))}
+  .gate h2{font-family:var(--serif);font-weight:400;font-size:clamp(40px,6vw,72px);line-height:.95} .gate h2 em{font-style:italic;color:var(--pink-2)}
+  .gate .age{display:flex;align-items:center;gap:10px;font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+  .gate .age b{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:50%;border:1.5px solid var(--pink-2);color:var(--pink-2);font-weight:600;font-size:10px;letter-spacing:0}
+  .gate .leave{font-size:12px;color:var(--muted);opacity:.7}
+  .gate.off{display:none}
+  @media (max-width:1100px){.ggrid{grid-template-columns:repeat(2,1fr);grid-auto-rows:minmax(160px,40vw)}.ggrid .big{grid-column:span 2;grid-row:span 1}.ggrid .tall{grid-row:span 1}.wrap,.faq{grid-template-columns:1fr}.faq h2{position:static}.sizes{grid-template-columns:1fr}.facts{grid-template-columns:1fr 1fr}}
+  @media (max-width:760px){.foot,.facts{grid-template-columns:1fr}}
+  h1,h2,h3,.pre .word,.co h3,.end h2,.cap h2,.title h1,.buy h1,.fact h3,.faq h2,.ghead h2,.q button,.drawer header h3{text-transform:uppercase;letter-spacing:.01em}
+  em{font-style:normal!important}
+  @media (max-width:760px){.nav{padding:16px 20px}.brand{font-size:18px;gap:8px;white-space:nowrap}.brand img{width:26px;height:26px}.nav .right{gap:14px;font-size:12.5px}}
+  .snd{display:flex;align-items:center;gap:8px;font-size:12.5px;font-weight:500;color:var(--muted)} .snd:hover{color:var(--ink)} .snd i{display:inline-block;width:12px;height:12px;border-radius:50%;border:1px solid currentColor;position:relative} .snd i::after{content:'';position:absolute;inset:3px;border-radius:50%;background:currentColor;opacity:0;transition:opacity .3s} .snd.on i::after{opacity:1}
+  @media (max-width:760px){.snd span{display:none}}
+</style>
+<style>
+  .legal-hero{padding-block:16vh 4vh;max-width:1360px;margin:0 auto}
+  .legal-hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(44px,6vw,96px);line-height:.95} .legal-hero h1 em{color:var(--pink-2)}
+  .legal-hero p{margin-top:16px;color:var(--muted);font-size:17px;font-weight:300;max-width:62ch}
+  .meta{margin-top:18px;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+  .doc{max-width:1360px;margin:0 auto;display:grid;grid-template-columns:260px 1fr;gap:clamp(32px,6vw,96px);padding-block:4vh 12vh;align-items:start}
+  .toc{position:sticky;top:110px;display:grid;gap:6px;font-size:14px}
+  .toc a{color:var(--muted);padding:6px 0;border-bottom:1px solid transparent;transition:color .3s} .toc a:hover,.toc a.cur{color:var(--ink)}
+  .body{max-width:72ch}
+  .body h2{font-family:var(--serif);font-weight:400;font-size:28px;line-height:1.05;margin:46px 0 14px;padding-top:18px;border-top:1px solid var(--line)} .body h2:first-child{margin-top:0;border:0;padding-top:0}
+  .body p,.body li{color:rgba(246,238,242,.78);font-size:16px;font-weight:300;line-height:1.7}
+  .body p+p{margin-top:12px} .body ul,.body ol{padding-left:22px;margin:10px 0} .body li+li{margin-top:6px}
+  .body b{color:var(--ink);font-weight:500} .body a{color:var(--pink-2);border-bottom:1px solid rgba(255,45,94,.35)}
+  .ph{color:var(--pink-3);font-style:normal}
+  .body table{width:100%;border-collapse:collapse;margin:14px 0;font-size:15px} .body th,.body td{text-align:left;padding:12px 14px;border:1px solid var(--line);vertical-align:top;font-weight:300;color:rgba(246,238,242,.8)} .body th{color:var(--ink);font-weight:500;background:var(--bg-2)}
+  @media (max-width:900px){.doc{grid-template-columns:1fr}.toc{position:static;display:flex;flex-wrap:wrap;gap:4px 16px;margin-bottom:10px}}
+</style>
+</head>
+<body>
+<div class="gate off" id="gate"><div class="in"><img src="assets/logo.webp" alt=""><h2>Slick <em>Velvet</em></h2><div class="age"><b>18+</b>For adults only</div><a class="btn btn-pink" id="gateBtn" href="#" data-hover>I'm 18 or older — enter</a><a class="leave" href="https://www.google.com">I'm under 18</a></div></div>
+<div class="cursor" id="cur"></div><div class="ring" id="ring"></div>
+<div class="grain"></div>
+<nav class="nav" aria-label="Main">
+  <a class="brand" href="index.html" data-hover><img src="assets/logo-sm.webp" alt="">Slick Velvet</a>
+  <div class="right"><button class="snd" data-sound data-hover aria-label="Toggle sound"><i></i><span>Sound on</span></button><a href="index.html" data-hover>Home</a><a href="shop.html" data-hover>Shop</a><a href="delivery.html" data-hover>Delivery</a></div>
+</nav>
+<main>
+<section class="legal-hero gutter"><h1>Terms &amp; <em>Conditions.</em></h1><p>The plain-English rules for buying from us: what you pay, how it arrives, how to return it, and the rights South African law gives you.</p><div class="meta">Last updated 28 October 2026 · Applies to slickvelvet.co.za</div></section>
+<section class="doc gutter"><nav class="toc" aria-label="On this page"><a href="#about" data-hover>1. Who we are</a><a href="#agreement" data-hover>2. These terms</a><a href="#age" data-hover>3. Adults only</a><a href="#products" data-hover>4. Products and descriptions</a><a href="#prices" data-hover>5. Prices and payment</a><a href="#orders" data-hover>6. Orders</a><a href="#delivery" data-hover>7. Delivery</a><a href="#cooling" data-hover>8. Cooling-off and returns</a><a href="#defects" data-hover>9. Defective products</a><a href="#ip" data-hover>10. Intellectual property</a><a href="#use" data-hover>11. Using the Site</a><a href="#liability" data-hover>12. Liability</a><a href="#privacy" data-hover>13. Privacy</a><a href="#disputes" data-hover>14. Complaints and disputes</a><a href="#changes" data-hover>15. Changes to these Terms</a></nav><div class="body"><h2 id="about">1. Who we are</h2><p>Slick Velvet is a trading name of <b><em class="ph">[Registered business name (Pty) Ltd]</em></b>, registration number <em class="ph">[reg. no.]</em>, a private company registered in South Africa (the "Company", "we", "us"). These details are provided under section 43 of the Electronic Communications and Transactions Act 25 of 2002 (ECTA).</p>
+<table><tr><th>Physical address</th><td><em class="ph">[Street address, Cape Town, postal code]</em></td></tr><tr><th>Address for legal service</th><td>Same as physical address</td></tr><tr><th>Email</th><td><em class="ph">[hello@slickvelvet.co.za]</em></td></tr><tr><th>Phone / WhatsApp</th><td><em class="ph">[+27 …]</em></td></tr><tr><th>Website</th><td>slickvelvet.co.za</td></tr><tr><th>Directors</th><td><em class="ph">[Names of directors]</em></td></tr><tr><th>VAT number</th><td><em class="ph">[VAT no., if registered]</em></td></tr></table><h2 id="agreement">2. These terms</h2><p>These Terms and Conditions ("Terms") govern your use of slickvelvet.co.za (the "Site") and every purchase you make through it. By using the Site or placing an order you agree to them. If you do not agree, please do not use the Site.</p><p>These Terms are governed by South African law, including the Consumer Protection Act 68 of 2008 (CPA), ECTA and the Protection of Personal Information Act 4 of 2013 (POPIA). Nothing in these Terms removes any right you have under those laws.</p><p>You may save or print these Terms at any time. We keep a copy of the version you accepted with your order record.</p><h2 id="age">3. Adults only</h2><p>Our products are intended for adults. You confirm that you are <b>18 years or older</b> when you enter the Site and when you place an order. We may cancel any order where we reasonably believe the buyer is under 18.</p><h2 id="products">4. Products and descriptions</h2><p>We sell water-based personal lubricant in the sizes shown on the Site. We describe each product as accurately as we can, including volume, ingredients and directions for use. Photographs are of the actual product; colours may vary slightly between screens.</p><p>Our products are cosmetics for external and intimate use. They are not medicines and are not a contraceptive, and they do not protect against pregnancy or sexually transmitted infections. Stop use and consult a healthcare professional if irritation occurs. Always read the ingredients list if you have known sensitivities.</p><h2 id="prices">5. Prices and payment</h2><p>All prices are in South African Rand (ZAR) and <b>include VAT</b> at the current rate. Delivery charges, if any, are shown at checkout before you pay. The price you pay is the price displayed when you confirm your order.</p><p>Payment is processed by <em class="ph">[payment provider, e.g. PayFast / Yoco]</em> using card or instant EFT. We never see or store your full card details. For your privacy the merchant name on your bank or card statement is <b><em class="ph">[neutral merchant name]</em></b>, not "Slick Velvet".</p><p>If we discover a genuine pricing error before dispatch we will contact you to confirm or cancel the order, and refund you in full if cancelled.</p><h2 id="orders">6. Orders</h2><p>Your order is an offer to buy. We accept it when we send you an order confirmation by email, at which point a contract is formed. We may decline an order, for example where stock is unavailable, payment fails, or we suspect fraud, and will refund any amount paid.</p><p>You will receive an order number, a confirmation email and a tracking SMS when your parcel ships. These, with these Terms, form the record of your transaction. Keep them for your records.</p><h2 id="delivery">7. Delivery</h2><p>We deliver anywhere in South Africa by door-to-door courier, typically within <b>2–5 working days</b> of dispatch. Orders placed before 12:00 on a working day are usually dispatched the same day. Delivery is free on orders over <b>R450</b>; otherwise the delivery fee is shown at checkout.</p><p>Every parcel is shipped in <b>plain, unbranded packaging</b> with a neutral sender name and "personal care" as the contents description. Full details are on our <a href="delivery.html" data-hover>Delivery &amp; discretion</a> page.</p><p>Risk in the goods passes to you on delivery. If a parcel arrives damaged, tell us within 48 hours with a photo and we will replace it.</p><h2 id="cooling">8. Cooling-off and returns</h2><p><b>7-day cooling-off (ECTA section 44).</b> You may cancel an online order for any reason within <b>7 days after receiving</b> the goods, provided the product is <b>unopened and the seal is intact</b>. Email us with your order number; we will confirm the return address. You are responsible for the direct cost of returning the goods. We refund the purchase price within <b>30 days</b> of receiving your cancellation, to the same payment method you used.</p><p><b>Opened products.</b> For hygiene and safety reasons, personal lubricant that has been opened, unsealed or used cannot be returned or exchanged unless it is defective. This is permitted by section 44(2) of ECTA and section 20(6) of the CPA.</p><p><b>Wrong item delivered.</b> If we send the wrong product, we collect it at our cost and send the right one, or refund you in full — your choice.</p><h2 id="defects">9. Defective products</h2><p>Under section 56 of the CPA, if a product is defective or unsafe you may return it within <b>6 months of delivery</b> and choose a repair, a replacement or a full refund. Contact us first so we can arrange collection at our cost. This does not cover damage caused by misuse or by not following the directions for use.</p><h2 id="ip">10. Intellectual property</h2><p>The Slick Velvet name, logo, bottle design, photographs, text and the Site itself belong to the Company or our licensors and are protected by South African and international law. You may not copy, reproduce or use them for any commercial purpose without our written consent.</p><h2 id="use">11. Using the Site</h2><p>You agree not to misuse the Site, interfere with its operation, attempt unauthorised access, scrape content, or use it for anything unlawful. We may suspend access where we believe these Terms are being breached.</p><p>We try to keep the Site available and accurate, but it is provided "as is". We may change products, prices and content at any time.</p><h2 id="liability">12. Liability</h2><p>To the extent allowed by the CPA and other applicable law, we are not liable for indirect or consequential loss arising from your use of the Site or our products. Nothing in these Terms limits liability for death, personal injury or gross negligence, or excludes any right you have under the CPA.</p><h2 id="privacy">13. Privacy</h2><p>We process your personal information to fulfil your order and as described in our <a href="privacy.html" data-hover>Privacy Policy</a>, which forms part of these Terms. Payments are handled over encrypted connections by our payment provider; we do not store card numbers.</p><h2 id="disputes">14. Complaints and disputes</h2><p>If something goes wrong, email <em class="ph">[hello@slickvelvet.co.za]</em> and we will respond within 2 working days. If we cannot resolve a complaint, you may refer it to the <b>Consumer Goods and Services Ombud</b> (cgso.org.za, 0860 000 272) or the National Consumer Commission. Disputes are subject to the law of South Africa and the jurisdiction of its courts.</p><h2 id="changes">15. Changes to these Terms</h2><p>We may update these Terms from time to time. The version on the Site when you place an order is the one that applies to that order. The date at the top shows when they were last changed.</p></div></section>
+</main>
+<footer class="gutter">
+  <div class="foot">
+    <div class="about"><img src="assets/logo-sm.webp" alt="Slick Velvet"><p>Personal lubricant made in Cape Town and shipped discreetly across South Africa.</p><ul style="display:flex;gap:18px"><li><a href="#" data-hover>Instagram</a></li><li><a href="#" data-hover>TikTok</a></li></ul></div>
+    <div><h4>Shop</h4><ul><li><a href="shop.html#shop" data-hover>The Pump</a></li><li><a href="shop.html#shop" data-hover>The Travel</a></li><li><a href="shop.html#shop" data-hover>The Duo</a></li></ul></div>
+    <div><h4>Help</h4><ul><li><a href="shop.html#faq" data-hover>FAQ</a></li><li><a href="delivery.html" data-hover>Delivery &amp; discretion</a></li><li><a href="terms.html#disputes" data-hover>Contact</a></li></ul></div>
+    <div><h4>Legal</h4><ul><li><a href="privacy.html" data-hover>Privacy policy</a></li><li><a href="terms.html" data-hover>Terms &amp; conditions</a></li></ul></div>
+  </div>
+  <div class="legal"><div class="ecta"><em>[Registered business name (Pty) Ltd · Reg. no.]</em> · <em>[Physical address, Cape Town]</em> · <em>[hello@slickvelvet.co.za · +27 …]</em> · Prices in ZAR incl. VAT · For adults 18+</div><span>© 2026 Slick Velvet</span><span>slickvelvet.co.za</span></div>
+</footer>
+<script src="sound.js"></script>
+<script type="module">
+import gsap from 'https://cdn.jsdelivr.net/npm/gsap@3.12.5/index.js';
+const isTouch = matchMedia('(hover:none)').matches; if (!isTouch) document.body.classList.add('has-cursor');
+SVSound.auto();
+let ok = false; try { ok = localStorage.getItem('sv18') === '1'; } catch {}
+const gate = document.getElementById('gate'); if (!ok) gate.classList.remove('off');
+document.getElementById('gateBtn').addEventListener('click', e => { e.preventDefault(); try { localStorage.setItem('sv18', '1'); } catch {} gsap.to(gate, { opacity: 0, duration: .6, onComplete: () => gate.classList.add('off') }); });
+const cur = document.getElementById('cur'), ring = document.getElementById('ring'); const m = { x: innerWidth / 2, y: innerHeight / 2 }; let rx = m.x, ry = m.y;
+window.addEventListener('pointermove', e => { m.x = e.clientX; m.y = e.clientY; });
+gsap.ticker.add(() => { rx += (m.x - rx) * .14; ry += (m.y - ry) * .14; cur.style.transform = `translate(${m.x}px,${m.y}px) translate(-50%,-50%)`; ring.style.transform = `translate(${rx}px,${ry}px) translate(-50%,-50%)`; });
+document.querySelectorAll('[data-hover]').forEach(el => { el.addEventListener('pointerenter', () => document.body.classList.add('hovering')); el.addEventListener('pointerleave', () => document.body.classList.remove('hovering')); });
+const links = [...document.querySelectorAll('.toc a')], heads = links.map(a => document.querySelector(a.getAttribute('href')));
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { links.forEach(a => a.classList.toggle('cur', a.getAttribute('href') === '#' + e.target.id)); } }), { rootMargin: '-20% 0px -70% 0px' }); heads.forEach(h => h && io.observe(h));
+</script>
+</body>
+</html>
