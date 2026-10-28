@@ -7,9 +7,9 @@
 <meta name="description" content="The Pump, 250 ml. Water-based personal lubricant made in Cape Town. Plain-box delivery across South Africa.">
 <link rel="icon" type="image/webp" href="assets/logo-sm.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
 <style>
-  :root{--bg:#070308;--bg-2:#0d0509;--panel:#120812;--ink:#f6eef2;--muted:rgba(246,238,242,.55);--line:rgba(246,238,242,.09);--pink:#f30a71;--pink-2:#ff3d9a;--pink-3:#ff8ac4;--serif:'Instrument Serif',Georgia,serif;--sans:'Manrope',system-ui,sans-serif;color-scheme:dark}
+  :root{--bg:#070308;--bg-2:#0d0509;--panel:#120812;--ink:#f6eef2;--muted:rgba(246,238,242,.55);--line:rgba(246,238,242,.09);--pink:#e4003f;--pink-2:#ff2d5e;--pink-3:#ff7a94;--serif:'Lilita One','Arial Black',sans-serif;--sans:'DM Sans',system-ui,sans-serif;color-scheme:dark}
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
   body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
@@ -33,17 +33,17 @@
   .bag{display:flex;align-items:center;gap:10px}
   .bag b{min-width:18px;height:18px;padding:0 5px;border-radius:999px;border:1px solid currentColor;font-weight:500;font-size:10px;display:grid;place-items:center}
   .btn{display:inline-flex;align-items:center;gap:10px;padding:14px 26px;border-radius:999px;font-size:13.5px;font-weight:600;letter-spacing:.02em;white-space:nowrap;transition:background .3s,box-shadow .3s,border-color .3s}
-  .btn-pink{background:var(--pink);color:#fff} .btn-pink:hover{background:var(--pink-2);box-shadow:0 0 40px -6px rgba(243,10,113,.6)}
+  .btn-pink{background:var(--pink);color:#fff} .btn-pink:hover{background:var(--pink-2);box-shadow:0 0 40px -6px rgba(228,0,63,.6)}
   .btn-ghost{border:1px solid rgba(246,238,242,.25)} .btn-ghost:hover{border-color:var(--ink)}
   /* shop */
-  .shop{position:relative;padding-block:16vh 10vh;background:radial-gradient(ellipse 60% 40% at 50% 0%,rgba(243,10,113,.14),transparent 70%),var(--bg)}
+  .shop{position:relative;padding-block:16vh 10vh;background:radial-gradient(ellipse 60% 40% at 50% 0%,rgba(228,0,63,.14),transparent 70%),var(--bg)}
   .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(32px,6vw,96px);align-items:center;max-width:1360px;margin:0 auto}
   .stage{position:relative;aspect-ratio:1/1.1;perspective:1200px}
-  .stage .bgp{position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 85%,rgba(243,10,113,.35),transparent 70%),linear-gradient(180deg,var(--bg-2),var(--bg));border:1px solid var(--line)}
+  .stage .bgp{position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 85%,rgba(228,0,63,.35),transparent 70%),linear-gradient(180deg,var(--bg-2),var(--bg));border:1px solid var(--line)}
   .stage img.shot{position:absolute;left:50%;bottom:4%;height:88%;width:auto;max-width:86%;object-fit:contain;transform:translateX(-50%);transition:opacity .5s,transform .9s cubic-bezier(.19,1,.22,1);will-change:transform;z-index:1;filter:drop-shadow(0 40px 60px rgba(0,0,0,.7))}
   .stage img.shot.out{opacity:0;transform:translateX(-50%) scale(.95)}
   .stage .chip{position:absolute;top:18px;left:18px;font-size:12.5px;font-weight:500;color:var(--muted);z-index:2}
-  .buy h1{font-family:var(--serif);font-weight:400;font-size:clamp(56px,6vw,96px);line-height:.9;letter-spacing:-.01em}
+  .buy h1{font-family:var(--serif);font-weight:400;font-size:clamp(48px,5.2vw,84px);line-height:.95;letter-spacing:.01em}
   .buy h1 em{font-style:italic;color:var(--pink-2)}
   .price{display:flex;align-items:baseline;gap:14px;margin-top:22px}
   .price b{font-size:24px;font-weight:500;font-variant-numeric:tabular-nums} .price span{color:var(--muted);font-size:13px}
@@ -62,11 +62,11 @@
   .trust li{padding-left:16px;position:relative} .trust li::before{content:'';position:absolute;left:0;top:10px;width:5px;height:5px;border-radius:50%;background:var(--pink-2)}
   .facts{max-width:1360px;margin:12vh auto 0;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}
   .fact{padding:32px 28px 36px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
-  .fact h3{font-family:var(--serif);font-weight:400;font-size:32px;line-height:1.02} .fact p{margin-top:12px;color:var(--muted);font-size:14.5px;font-weight:300}
+  .fact h3{font-family:var(--serif);font-weight:400;font-size:24px;line-height:1.02} .fact p{margin-top:12px;color:var(--muted);font-size:14.5px;font-weight:300}
   .faq{padding-block:14vh;max-width:1360px;margin:0 auto;display:grid;grid-template-columns:1fr 1.4fr;gap:clamp(32px,6vw,96px);align-items:start}
-  .faq h2{font-family:var(--serif);font-weight:400;font-size:clamp(48px,5.2vw,80px);line-height:.95;position:sticky;top:120px} .faq h2 em{font-style:italic;color:var(--pink-2)}
+  .faq h2{font-family:var(--serif);font-weight:400;font-size:clamp(40px,4.4vw,68px);line-height:.95;position:sticky;top:120px} .faq h2 em{font-style:italic;color:var(--pink-2)}
   .q{border-top:1px solid var(--line)} .q:last-child{border-bottom:1px solid var(--line)}
-  .q button{width:100%;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:24px 0;text-align:left;font-family:var(--serif);font-size:26px}
+  .q button{width:100%;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:24px 0;text-align:left;font-family:var(--serif);font-size:20px}
   .q button i{width:28px;height:28px;border-radius:50%;border:1px solid rgba(246,238,242,.2);display:grid;place-items:center;font-style:normal;font-size:16px;transition:transform .4s,background .3s;flex:none}
   .q[open] button i{transform:rotate(45deg);background:var(--ink);color:var(--bg)}
   .q .a{max-height:0;overflow:hidden;transition:max-height .5s cubic-bezier(.19,1,.22,1)} .q[open] .a{max-height:220px}
@@ -80,7 +80,7 @@
   /* gallery */
   .gallery{padding-block:4vh 6vh;max-width:1360px;margin:0 auto}
   .ghead{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:28px;flex-wrap:wrap}
-  .ghead h2{font-family:var(--serif);font-weight:400;font-size:clamp(44px,5vw,76px);line-height:.95} .ghead h2 em{font-style:italic;color:var(--pink-2)}
+  .ghead h2{font-family:var(--serif);font-weight:400;font-size:clamp(38px,4.2vw,64px);line-height:.95} .ghead h2 em{font-style:italic;color:var(--pink-2)}
   .ghead p{color:var(--muted);font-weight:300;max-width:34ch;font-size:15px}
   .ggrid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:minmax(180px,22vw);gap:12px}
   .ggrid figure{position:relative;overflow:hidden;background:var(--bg-2);border:1px solid var(--line)}
@@ -100,7 +100,7 @@
   .drawer header button{width:36px;height:36px;border-radius:50%;border:1px solid rgba(246,238,242,.2);font-size:18px}
   .drawer .items{padding:18px 24px;overflow:auto;display:grid;gap:1px;align-content:start} .drawer .empty{color:var(--muted);font-size:15px;padding:24px 0;font-weight:300}
   .item{display:grid;grid-template-columns:72px 1fr auto;gap:14px;align-items:center;padding:14px 0;border-bottom:1px solid var(--line)}
-  .item .th{width:72px;height:84px;background:radial-gradient(ellipse at 50% 80%,rgba(243,10,113,.3),var(--panel) 70%);display:grid;place-items:center;overflow:hidden} .item .th img{height:78%;width:auto}
+  .item .th{width:72px;height:84px;background:radial-gradient(ellipse at 50% 80%,rgba(228,0,63,.3),var(--panel) 70%);display:grid;place-items:center;overflow:hidden} .item .th img{height:78%;width:auto}
   .item b{font-weight:600;font-size:14.5px;display:block} .item small{font-size:12.5px;color:var(--muted)}
   .item .ctl{display:grid;gap:6px;justify-items:end} .item .ctl .qty button{width:30px;height:32px;font-size:16px} .item .ctl .qty output{min-width:22px;font-size:12px}
   .item .ctl .rm{font-size:12px;color:var(--muted)} .item .ctl .rm:hover{color:var(--pink-2)}
@@ -112,9 +112,9 @@
   .toast.on{opacity:1;transform:translate(-50%,0)}
   /* age gate (compact) */
   .gate{position:fixed;inset:0;z-index:100;background:var(--bg);display:grid;place-items:center;text-align:center}
-  .gate::before{content:'';position:absolute;inset:-20%;background:radial-gradient(ellipse 42% 36% at 50% 56%,rgba(243,10,113,.3),transparent 70%)}
+  .gate::before{content:'';position:absolute;inset:-20%;background:radial-gradient(ellipse 42% 36% at 50% 56%,rgba(228,0,63,.3),transparent 70%)}
   .gate .in{position:relative;display:flex;flex-direction:column;align-items:center;gap:16px}
-  .gate img{width:96px;filter:drop-shadow(0 0 28px rgba(243,10,113,.45))}
+  .gate img{width:96px;filter:drop-shadow(0 0 28px rgba(228,0,63,.45))}
   .gate h2{font-family:var(--serif);font-weight:400;font-size:clamp(40px,6vw,72px);line-height:.95} .gate h2 em{font-style:italic;color:var(--pink-2)}
   .gate .age{display:flex;align-items:center;gap:10px;font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
   .gate .age b{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:50%;border:1.5px solid var(--pink-2);color:var(--pink-2);font-weight:600;font-size:10px;letter-spacing:0}
@@ -122,6 +122,8 @@
   .gate.off{display:none}
   @media (max-width:1100px){.ggrid{grid-template-columns:repeat(2,1fr);grid-auto-rows:minmax(160px,40vw)}.ggrid .big{grid-column:span 2;grid-row:span 1}.ggrid .tall{grid-row:span 1}.wrap,.faq{grid-template-columns:1fr}.faq h2{position:static}.sizes{grid-template-columns:1fr}.facts{grid-template-columns:1fr 1fr}}
   @media (max-width:760px){.foot,.facts{grid-template-columns:1fr}}
+  h1,h2,h3,.pre .word,.co h3,.end h2,.cap h2,.title h1,.buy h1,.fact h3,.faq h2,.ghead h2,.q button,.drawer header h3{text-transform:uppercase;letter-spacing:.01em}
+  em{font-style:normal!important}
 </style>
 </head>
 <body>
@@ -130,8 +132,8 @@
 <div class="grain"></div>
 
 <nav class="nav" aria-label="Main">
-  <a class="brand" href="/" data-hover><img src="assets/logo-sm.webp" alt="">Slick Velvet</a>
-  <div class="right"><a href="/" data-hover>Home</a><a href="#faq" data-hover>FAQ</a><button class="bag" id="bagBtn" aria-label="Open bag" data-hover>Bag <b id="bagCount">0</b></button></div>
+  <a class="brand" href="index.html" data-hover><img src="assets/logo-sm.webp" alt="">Slick Velvet</a>
+  <div class="right"><a href="index.html" data-hover>Home</a><a href="#faq" data-hover>FAQ</a><button class="bag" id="bagBtn" aria-label="Open bag" data-hover>Bag <b id="bagCount">0</b></button></div>
 </nav>
 
 <main>

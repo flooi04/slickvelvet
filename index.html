@@ -7,9 +7,9 @@
 <meta name="description" content="Slick Velvet. Personal lubricant made in Cape Town.">
 <link rel="icon" type="image/webp" href="assets/logo-sm.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
 <style>
-  :root { --bg:#070308; --ink:#f6eef2; --muted:rgba(246,238,242,.55); --pink:#f30a71; --pink-2:#ff3d9a; --serif:'Instrument Serif', Georgia, serif; --sans:'Manrope', system-ui, sans-serif; color-scheme: dark; }
+  :root { --bg:#070308; --ink:#f6eef2; --muted:rgba(246,238,242,.55); --pink:#e4003f; --pink-2:#ff2d5e; --serif:'Lilita One', 'Arial Black', sans-serif; --sans:'DM Sans', system-ui, sans-serif; color-scheme: dark; }
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
   html{overflow-x:hidden} html.lenis,html.lenis body{height:auto} .lenis.lenis-smooth{scroll-behavior:auto!important}
   body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
@@ -25,16 +25,16 @@
   @media (hover:none){.cursor,.ring{display:none}}
   /* preloader / gate */
   .pre{position:fixed;inset:0;z-index:100;background:var(--bg);display:grid;place-items:center;overflow:hidden}
-  .pre::before{content:'';position:absolute;inset:-20%;background:radial-gradient(ellipse 42% 36% at 50% 56%,rgba(243,10,113,.34),transparent 70%),radial-gradient(ellipse 70% 50% at 50% 110%,rgba(120,8,60,.5),transparent 70%);animation:breathe 7s ease-in-out infinite}
+  .pre::before{content:'';position:absolute;inset:-20%;background:radial-gradient(ellipse 42% 36% at 50% 56%,rgba(228,0,63,.34),transparent 70%),radial-gradient(ellipse 70% 50% at 50% 110%,rgba(110,6,30,.5),transparent 70%);animation:breathe 7s ease-in-out infinite}
   @keyframes breathe{0%,100%{transform:scale(1);opacity:.85}50%{transform:scale(1.08);opacity:1}}
-  .pre .halo{position:absolute;left:50%;top:50%;width:min(62vmin,560px);aspect-ratio:1;border-radius:50%;transform:translate(-50%,-56%);border:1px solid rgba(246,238,242,.07);box-shadow:inset 0 0 80px rgba(243,10,113,.08)}
+  .pre .halo{position:absolute;left:50%;top:50%;width:min(62vmin,560px);aspect-ratio:1;border-radius:50%;transform:translate(-50%,-56%);border:1px solid rgba(246,238,242,.07);box-shadow:inset 0 0 80px rgba(228,0,63,.08)}
   .pre .halo::after{content:'';position:absolute;inset:-18%;border-radius:50%;border:1px solid rgba(246,238,242,.04)}
   .pre .mote{position:absolute;width:5px;height:5px;border-radius:50%;background:var(--pink-3);opacity:0;filter:blur(.5px);animation:mote 9s linear infinite}
   @keyframes mote{0%{transform:translateY(0) scale(.6);opacity:0}15%{opacity:.7}85%{opacity:.5}100%{transform:translateY(-60vh) scale(1);opacity:0}}
   .pre .stack{position:relative;display:flex;flex-direction:column;align-items:center;gap:0;transform:translateY(-4vh)}
-  .pre .logo{width:clamp(96px,12vmin,132px);filter:drop-shadow(0 0 28px rgba(243,10,113,.45));animation:logo 5s ease-in-out infinite}
+  .pre .logo{width:clamp(96px,12vmin,132px);filter:drop-shadow(0 0 28px rgba(228,0,63,.45));animation:logo 5s ease-in-out infinite}
   @keyframes logo{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
-  .pre .word{margin-top:26px;font-family:var(--serif);font-size:clamp(56px,9vw,124px);line-height:.9;letter-spacing:-.015em;color:var(--ink);text-align:center;overflow:hidden}
+  .pre .word{margin-top:26px;font-family:var(--serif);font-size:clamp(48px,7.5vw,104px);line-height:.95;letter-spacing:.01em;color:var(--ink);text-align:center;overflow:hidden}
   .pre .word em{color:var(--pink-2);font-style:italic}
   .pre .word .ch{display:inline-block;opacity:0;transform:translateY(110%)}
   .pre .tag{margin-top:18px;font-size:12.5px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);opacity:0}
@@ -46,11 +46,11 @@
   .pre .enter .age{display:flex;align-items:center;gap:10px;font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
   .pre .enter .age b{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:50%;border:1.5px solid var(--pink-2);color:var(--pink-2);font-weight:600;font-size:10px;letter-spacing:0}
   .pre .enter .leave{font-size:12px;color:var(--muted);opacity:.7;border-bottom:1px solid transparent;transition:opacity .3s,border-color .3s} .pre .enter .leave:hover{opacity:1;border-color:var(--muted)}
-  .pre .enter button{position:relative;width:128px;height:128px;border-radius:50%;border:1px solid rgba(246,238,242,.3);font-family:var(--serif);font-size:26px;line-height:1.05;color:var(--ink);background:rgba(7,3,8,.35);backdrop-filter:blur(6px);transition:transform .5s cubic-bezier(.19,1,.22,1),border-color .4s,box-shadow .4s,background .4s}
-  .pre .enter button::before,.pre .enter button::after{content:'';position:absolute;inset:-1px;border-radius:50%;border:1px solid rgba(255,61,154,.55);animation:ring 2.8s ease-out infinite;pointer-events:none}
+  .pre .enter button{position:relative;width:128px;height:128px;border-radius:50%;border:1px solid rgba(246,238,242,.3);font-family:var(--serif);font-size:22px;text-transform:uppercase;letter-spacing:.04em;line-height:1.05;color:var(--ink);background:rgba(7,3,8,.35);backdrop-filter:blur(6px);transition:transform .5s cubic-bezier(.19,1,.22,1),border-color .4s,box-shadow .4s,background .4s}
+  .pre .enter button::before,.pre .enter button::after{content:'';position:absolute;inset:-1px;border-radius:50%;border:1px solid rgba(255,45,94,.55);animation:ring 2.8s ease-out infinite;pointer-events:none}
   .pre .enter button::after{animation-delay:1.4s}
   @keyframes ring{0%{transform:scale(1);opacity:.8}100%{transform:scale(1.9);opacity:0}}
-  .pre .enter button:hover{transform:scale(1.06);border-color:var(--pink-2);background:rgba(243,10,113,.18);box-shadow:0 0 70px -10px rgba(243,10,113,.8)}
+  .pre .enter button:hover{transform:scale(1.06);border-color:var(--pink-2);background:rgba(228,0,63,.18);box-shadow:0 0 70px -10px rgba(228,0,63,.8)}
   .pre .enter .eq{display:flex;align-items:flex-end;gap:3px;height:14px}
   .pre .enter .eq i{width:2px;background:var(--pink-2);height:40%;animation:eq 1.1s ease-in-out infinite}
   .pre .enter .eq i:nth-child(2){animation-delay:.15s}.pre .enter .eq i:nth-child(3){animation-delay:.3s}.pre .enter .eq i:nth-child(4){animation-delay:.45s}.pre .enter .eq i:nth-child(5){animation-delay:.6s}
@@ -82,39 +82,39 @@
   .scroll i::after{content:'';position:absolute;left:0;top:-100%;width:100%;height:100%;background:var(--ink);animation:drop 1.8s ease-in-out infinite}
   @keyframes drop{to{top:100%}}
   .title{left:50%;top:38%;transform:translate(-50%,-50%);text-align:center;width:100%}
-  .title h1{font-family:var(--serif);font-weight:400;font-size:clamp(80px,12vw,200px);line-height:.82;letter-spacing:-.015em}
+  .title h1{font-family:var(--serif);font-weight:400;font-size:clamp(64px,10vw,164px);line-height:.9;letter-spacing:.01em}
   .title h1 em{color:var(--pink-2);font-style:italic}
   .title p{margin-top:22px;font-size:15px;font-weight:300;color:var(--muted)}
   .cap{opacity:0;max-width:34ch}
-  .cap h2{font-family:var(--serif);font-weight:400;font-size:clamp(40px,4.4vw,72px);line-height:.96;letter-spacing:-.01em}
+  .cap h2{font-family:var(--serif);font-weight:400;font-size:clamp(36px,3.8vw,62px);line-height:1;letter-spacing:.01em}
   .cap h2 em{font-style:italic;color:var(--pink-2)}
   .cap p{margin-top:14px;color:var(--muted);font-weight:300;font-size:15px}
   .c1{left:clamp(24px,4vw,64px);top:50%;transform:translateY(-50%)}
   .c2{right:clamp(24px,4vw,64px);top:50%;transform:translateY(-50%);text-align:right}
   .end{left:50%;top:50%;transform:translate(-50%,-50%);text-align:center;opacity:0;pointer-events:none}
-  .end h2{font-family:var(--serif);font-weight:400;font-size:clamp(56px,7vw,120px);line-height:.9}
+  .end h2{font-family:var(--serif);font-weight:400;font-size:clamp(48px,6vw,100px);line-height:.95}
   .end h2 em{font-style:italic;color:var(--pink-2)}
   .end p{margin-top:16px;color:var(--muted);font-weight:300}
   .end .ctas{display:flex;justify-content:center;gap:12px;margin-top:28px}
   .btn{display:inline-flex;align-items:center;gap:10px;padding:14px 26px;border-radius:999px;font-size:13.5px;font-weight:600;letter-spacing:.02em;white-space:nowrap;transition:background .3s,box-shadow .3s,border-color .3s}
-  .btn-pink{background:var(--pink);color:#fff} .btn-pink:hover{background:var(--pink-2);box-shadow:0 0 40px -6px rgba(243,10,113,.6)}
+  .btn-pink{background:var(--pink);color:#fff} .btn-pink:hover{background:var(--pink-2);box-shadow:0 0 40px -6px rgba(228,0,63,.6)}
   .btn-ghost{border:1px solid rgba(246,238,242,.25)} .btn-ghost:hover{border-color:var(--ink)}
   /* callouts projected from 3D */
   .callouts{position:fixed;inset:0;z-index:9;pointer-events:none}
-  .callouts svg{position:absolute;inset:0;width:100%;height:100%}
+  .callouts svg{display:none}
   .callouts line{stroke:rgba(246,238,242,.55);stroke-width:1}
   .callouts circle{fill:var(--ink)}
   .callouts line{stroke:rgba(246,238,242,.7);stroke-width:1.2}
   .callouts circle.dot{fill:var(--pink-2)} .callouts circle.halo{fill:none;stroke:var(--pink-2);stroke-width:1;opacity:.6}
-  .co{position:absolute;top:50%;width:min(38vw,520px);opacity:0;will-change:transform,opacity}
+  .co{position:absolute;top:50%;width:min(44vw,640px);opacity:0;will-change:transform,opacity}
   .co.l{left:clamp(24px,5vw,80px);text-align:left} .co.r{right:clamp(24px,5vw,80px);text-align:right}
-  .co .k{display:inline-flex;align-items:center;gap:10px;font-size:11.5px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--pink-2);margin-bottom:14px}
+  .co .k{display:inline-flex;align-items:center;gap:10px;font-size:13px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--pink-2);margin-bottom:14px}
   .co .k i{display:inline-block;width:22px;height:1px;background:var(--pink-2)}
-  .co h3{font-family:var(--serif);font-weight:400;font-size:clamp(44px,5vw,84px);line-height:.94;letter-spacing:-.01em;color:var(--ink);text-shadow:0 2px 40px rgba(7,3,8,.9)}
+  .co h3{display:inline-block;font-family:var(--serif);font-weight:400;font-size:clamp(48px,5.6vw,96px);line-height:1;letter-spacing:.01em;color:var(--ink);text-shadow:0 2px 40px rgba(7,3,8,.9)}
   .co h3 em{font-style:italic;color:var(--pink-2)}
-  .co p{margin-top:14px;font-size:16px;font-weight:300;color:rgba(246,238,242,.72);text-shadow:0 1px 20px rgba(7,3,8,.9);max-width:34ch}
+  .co p{margin-top:18px;font-size:19px;font-weight:300;color:rgba(246,238,242,.72);text-shadow:0 1px 20px rgba(7,3,8,.9);max-width:34ch}
   .co.r p{margin-left:auto}
-  .co .idx{margin-top:22px;font-size:11px;letter-spacing:.2em;color:var(--muted)}
+  .co .idx{display:none}
   .co .ph{margin-top:20px;width:min(15vw,210px);aspect-ratio:4/5;overflow:hidden;border:1px solid rgba(246,238,242,.14);box-shadow:0 30px 60px -20px rgba(0,0,0,.85);transform:rotate(-3deg)}
   .co.r .ph{margin-left:auto;transform:rotate(3deg)}
   .co .ph img{width:100%;height:100%;object-fit:cover;display:block}
@@ -124,6 +124,8 @@
   .end .pic.a{left:clamp(24px,7vw,120px)} .end .pic.b{right:clamp(24px,7vw,120px)}
   @media (max-width:900px){.end .pic,.co .ph{display:none}}
   @media (max-width:760px){.tr,.c2{display:none}.title h1{font-size:22vw}}
+  h1,h2,h3,.pre .word,.co h3,.end h2,.cap h2,.title h1,.buy h1,.fact h3,.faq h2,.ghead h2,.q button,.drawer header h3{text-transform:uppercase;letter-spacing:.01em}
+  em{font-style:normal!important}
 </style>
 </head>
 <body>
@@ -156,7 +158,7 @@
   <div class="title" id="title"><h1>Slick<br><em>Velvet</em></h1><p>Water-based personal lubricant. Never sticky, rinses clean.</p></div>
   <div class="cap c1" id="cap1"><h2>Velvet-thin.<br><em>Never sticky.</em></h2><p>Spreads with a fingertip, stays slippery for as long as you need it, and rinses off with water.</p></div>
   <div class="cap c2" id="cap2"><h2>Plain box.<br><em>Quiet statement.</em></h2><p>No branding on the parcel and a neutral name on your bank statement. Anywhere in South Africa in two to five days.</p></div>
-  <div class="end" id="end"><div class="pic a" id="picA"><img src="assets/life-bed.webp" alt=""></div><div class="pic b" id="picB"><img src="assets/life-wall.webp" alt=""></div><h2>One press.<br><em>The right amount.</em></h2><p>The Pump, 250 ml — R249. Made in Cape Town.</p><div class="ctas"><a class="btn btn-pink" href="/shop" data-hover>Shop the Pump</a><a class="btn btn-ghost" href="/shop#faq" data-hover>Questions</a></div></div>
+  <div class="end" id="end"><div class="pic a" id="picA"><img src="assets/life-bed.webp" alt=""></div><div class="pic b" id="picB"><img src="assets/life-wall.webp" alt=""></div><h2>One press.<br><em>The right amount.</em></h2><p>The Pump, 250 ml — R249. Made in Cape Town.</p><div class="ctas"><a class="btn btn-pink" href="shop.html" data-hover>Shop the Pump</a><a class="btn btn-ghost" href="shop.html#faq" data-hover>Questions</a></div></div>
 </div>
 <div class="track" id="top"></div>
 
@@ -188,7 +190,8 @@ if (!isTouch) document.body.classList.add('has-cursor');
 /* ---------- scroll ---------- */
 let progress = 0, vel = 0, lenis = null;
 if (!reduced) { lenis = new Lenis({ lerp: 0.07, smoothWheel: true }); lenis.on('scroll', e => { vel = e.velocity; }); gsap.ticker.add(t => lenis.raf(t * 1000)); gsap.ticker.lagSmoothing(0); }
-function readProgress() { const max = document.documentElement.scrollHeight - innerHeight; progress = Math.min(1, Math.max(0, (window.scrollY || 0) / Math.max(1, max))); }
+const forceP = new URLSearchParams(location.search).get('p');
+function readProgress() { if (forceP) { progress = +forceP; return; } const max = document.documentElement.scrollHeight - innerHeight; progress = Math.min(1, Math.max(0, (window.scrollY || 0) / Math.max(1, max))); }
 window.addEventListener('scroll', readProgress, { passive: true });
 
 /* ---------- cursor ---------- */
@@ -203,7 +206,7 @@ const canvas = document.getElementById('gl');
 const renderer = new THREE.WebGLRenderer({ canvas, antialias: false, powerPreference: 'high-performance' });
 renderer.setPixelRatio(Math.min(devicePixelRatio, 1.75)); renderer.setSize(innerWidth, innerHeight);
 renderer.outputColorSpace = THREE.SRGBColorSpace; renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.toneMappingExposure = 1.0;
-const scene = new THREE.Scene(); scene.background = new THREE.Color(0x14070f); scene.fog = new THREE.FogExp2(0x14070f, 0.04);
+const scene = new THREE.Scene(); scene.background = new THREE.Color(0x14060a); scene.fog = new THREE.FogExp2(0x14060a, 0.04);
 const camera = new THREE.PerspectiveCamera(32, innerWidth / innerHeight, 0.1, 200);
 const pmrem = new THREE.PMREMGenerator(renderer); scene.environment = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
 
@@ -220,7 +223,7 @@ const NOISE = `
     return h;
   }`;
 const terrainMat = new THREE.ShaderMaterial({
-  uniforms: { uT: { value: 0 }, uLight: { value: new THREE.Vector3(6, 5, -3) }, uFogColor: { value: new THREE.Color(0x14070f) }, uFogDensity: { value: 0.04 }, uCam: { value: new THREE.Vector3() } },
+  uniforms: { uT: { value: 0 }, uLight: { value: new THREE.Vector3(6, 5, -3) }, uFogColor: { value: new THREE.Color(0x14060a) }, uFogDensity: { value: 0.04 }, uCam: { value: new THREE.Vector3() } },
   vertexShader: NOISE + `
     varying vec3 vW; varying vec3 vN;
     void main(){ vec3 p = position; vec3 w = (modelMatrix * vec4(p, 1.0)).xyz; float h = height(w.xz); w.y = h;
@@ -233,9 +236,9 @@ const terrainMat = new THREE.ShaderMaterial({
       float nv = max(dot(N, V), 0.0);
       float sheen = pow(1.0 - nv, 3.2);                               // velvet: brightest at grazing angles
       float diff = max(dot(N, L), 0.0);
-      vec3 base = vec3(0.035, 0.010, 0.024);
-      vec3 pink = vec3(0.95, 0.08, 0.45);
-      vec3 col = base + pink * (sheen * 0.26 + diff * 0.06) + vec3(0.9, 0.3, 0.6) * pow(max(dot(reflect(-L, N), V), 0.0), 24.0) * 0.12;
+      vec3 base = vec3(0.035, 0.008, 0.014);
+      vec3 pink = vec3(0.92, 0.06, 0.22);
+      vec3 col = base + pink * (sheen * 0.26 + diff * 0.06) + vec3(0.9, 0.25, 0.35) * pow(max(dot(reflect(-L, N), V), 0.0), 24.0) * 0.12;
       float fine = snoise(vW.xz * 9.0) * 0.5 + 0.5; col *= 0.88 + 0.24 * fine;  // fabric grain
       float d = length(uCam - vW); float f = 1.0 - exp(-uFogDensity * uFogDensity * d * d);
       col = mix(col, uFogColor, clamp(f, 0.0, 1.0));
@@ -255,24 +258,24 @@ const dropsMat = new THREE.ShaderMaterial({ transparent: true, depthWrite: false
     void main(){ vec3 p = position; p.y = mod(p.y + uT * (0.12 + aSeed * 0.25), 14.0); p.x += sin(uT * 0.3 + aSeed * 20.0) * 0.6; p.z += cos(uT * 0.25 + aSeed * 13.0) * 0.6;
       vec4 mv = modelViewMatrix * vec4(p, 1.0); float d = -mv.z; gl_Position = projectionMatrix * mv; gl_PointSize = aS * (90.0 / max(d, 1.0));
       vA = smoothstep(0.0, 1.5, p.y) * smoothstep(14.0, 9.0, p.y) * smoothstep(60.0, 8.0, d) * (0.35 + 0.65 * aSeed); }`,
-  fragmentShader: `varying float vA; void main(){ vec2 c = gl_PointCoord - 0.5; float d = length(c); if (d > 0.5) discard; float a = pow(smoothstep(0.5, 0.0, d), 1.6); gl_FragColor = vec4(1.0, 0.45, 0.72, a * vA * 0.55); }` });
+  fragmentShader: `varying float vA; void main(){ vec2 c = gl_PointCoord - 0.5; float d = length(c); if (d > 0.5) discard; float a = pow(smoothstep(0.5, 0.0, d), 1.6); gl_FragColor = vec4(1.0, 0.35, 0.5, a * vA * 0.55); }` });
 scene.add(new THREE.Points(dg, dropsMat));
 
 /* ---------- lights ---------- */
-const key = new THREE.SpotLight(0xffe6f0, 300, 60, 0.7, 0.5, 1.6); key.position.set(-7, 11, 9); key.target.position.set(0, 2, 0); scene.add(key, key.target);
-const rim = new THREE.SpotLight(0xff2d8a, 240, 60, 0.6, 0.6, 1.6); rim.position.set(8, 7, -9); rim.target.position.set(0, 2, 0); scene.add(rim, rim.target);
-const fill = new THREE.PointLight(0xff8ac4, 30, 30, 1.8); fill.position.set(6, 3, 6); scene.add(fill);
-scene.add(new THREE.AmbientLight(0x3a0d2a, 0.6));
+const key = new THREE.SpotLight(0xffe8ea, 300, 60, 0.7, 0.5, 1.6); key.position.set(-7, 11, 9); key.target.position.set(0, 2, 0); scene.add(key, key.target);
+const rim = new THREE.SpotLight(0xff2050, 240, 60, 0.6, 0.6, 1.6); rim.position.set(8, 7, -9); rim.target.position.set(0, 2, 0); scene.add(rim, rim.target);
+const fill = new THREE.PointLight(0xff6a86, 30, 30, 1.8); fill.position.set(6, 3, 6); scene.add(fill);
+scene.add(new THREE.AmbientLight(0x3a0a14, 0.6));
 
 /* ---------- the product: placeholder bottle built from stacked slabs, with a lit core ---------- */
 // Drop-in: put a real model at assets/bottle.glb with meshes named body*, collar*, pump* and it replaces this.
 const logoTex = new THREE.TextureLoader().load('assets/logo.webp'); logoTex.colorSpace = THREE.SRGBColorSpace; logoTex.anisotropy = 8;
-const matte = new THREE.MeshPhysicalMaterial({ color: 0x050405, emissive: 0xff2d8f, emissiveIntensity: 0, roughness: 0.52, clearcoat: 0.35, clearcoatRoughness: 0.45, envMapIntensity: 0.35 });
-const glossy = new THREE.MeshPhysicalMaterial({ color: 0x040304, emissive: 0xff2d8f, emissiveIntensity: 0, roughness: 0.28, clearcoat: 0.7, clearcoatRoughness: 0.2, envMapIntensity: 0.45 });
-const coreC = document.createElement('canvas'); coreC.width = 64; coreC.height = 256; { const g = coreC.getContext('2d'); const gr = g.createLinearGradient(0, 0, 0, 256); gr.addColorStop(0, '#ff5fb0'); gr.addColorStop(0.5, '#ff1f86'); gr.addColorStop(1, '#8a0a4c'); g.fillStyle = gr; g.fillRect(0, 0, 64, 256); }
+const matte = new THREE.MeshPhysicalMaterial({ color: 0x050405, emissive: 0xff1f55, emissiveIntensity: 0, roughness: 0.52, clearcoat: 0.35, clearcoatRoughness: 0.45, envMapIntensity: 0.35 });
+const glossy = new THREE.MeshPhysicalMaterial({ color: 0x040304, emissive: 0xff1f55, emissiveIntensity: 0, roughness: 0.28, clearcoat: 0.7, clearcoatRoughness: 0.2, envMapIntensity: 0.45 });
+const coreC = document.createElement('canvas'); coreC.width = 64; coreC.height = 256; { const g = coreC.getContext('2d'); const gr = g.createLinearGradient(0, 0, 0, 256); gr.addColorStop(0, '#ff4d7a'); gr.addColorStop(0.5, '#f0104a'); gr.addColorStop(1, '#7a0a26'); g.fillStyle = gr; g.fillRect(0, 0, 64, 256); }
 const coreTex = new THREE.CanvasTexture(coreC); coreTex.colorSpace = THREE.SRGBColorSpace;
-const core = new THREE.MeshPhysicalMaterial({ map: coreTex, emissive: 0xff2d8f, emissiveIntensity: 0.9, roughness: 0.25, clearcoat: 1, transmission: 0, transparent: true, opacity: 0 });
-const logoMat = new THREE.MeshPhysicalMaterial({ map: logoTex, transparent: true, emissive: 0xff2d8f, emissiveIntensity: 0, roughness: 0.3, clearcoat: 0.6, envMapIntensity: 0.7, alphaTest: 0.02 });
+const core = new THREE.MeshPhysicalMaterial({ map: coreTex, emissive: 0xff1f55, emissiveIntensity: 0.9, roughness: 0.25, clearcoat: 1, transmission: 0, transparent: true, opacity: 0 });
+const logoMat = new THREE.MeshPhysicalMaterial({ map: logoTex, transparent: true, emissiveMap: logoTex, emissive: 0xffffff, emissiveIntensity: 0.4, roughness: 0.3, clearcoat: 0.6, envMapIntensity: 0.7, alphaTest: 0.02 });
 const product = new THREE.Group(); scene.add(product);
 const parts = []; // { obj, rest: {pos, rot}, out: {pos, rot} }
 const S = 2.6; // model scale
@@ -282,22 +285,23 @@ const BW = 1.0 * S, BD = 0.5 * S, BH = 0.92 * S, N = 6, SH = BH / N, BEV = 0.075
 const bodyGeo = new THREE.ExtrudeGeometry(rrect(BW - 2 * BEV, BH - 2 * BEV, 0.2 * S - BEV), { depth: BD - 2 * BEV, bevelEnabled: true, bevelThickness: BEV, bevelSize: BEV, bevelSegments: 7, curveSegments: 24 });
 bodyGeo.center(); bodyGeo.translate(0, BH / 2, 0);
 renderer.localClippingEnabled = true;
-const slices = [];
+const coreGeo = (() => { const cw = BW * 0.8, ch = BH * 0.88, cd = BD * 0.74, cb = 0.05 * S; const g = new THREE.ExtrudeGeometry(rrect(cw - 2 * cb, ch - 2 * cb, 0.17 * S - cb), { depth: cd - 2 * cb, bevelEnabled: true, bevelThickness: cb, bevelSize: cb, bevelSegments: 4, curveSegments: 20 }); g.center(); g.translate(0, BH / 2, 0); return g; })();
+const slices = [], coreMats = [], corePieces = [];
 for (let i = 0; i < N; i++) { const y0 = SH * i, y1 = SH * (i + 1); const mat = matte.clone(); mat.side = THREE.DoubleSide; mat.clippingPlanes = [new THREE.Plane(new THREE.Vector3(0, 1, 0), -y0 - (i ? 0.0008 * S : -1)), new THREE.Plane(new THREE.Vector3(0, -1, 0), y1 - (i < N - 1 ? 0.0008 * S : -1))];
-  const m = new THREE.Mesh(bodyGeo, mat); m.userData.planes = mat.clippingPlanes.map(pl => pl.clone()); product.add(m); slices.push(m); parts.push({ obj: m, k: i / (N - 1), kind: 'body' }); }
-const coreMesh = new THREE.Mesh(new RoundedBoxGeometry(BW * 0.84, BH * 0.9, BD * 0.8, 3, 0.14 * S), core); coreMesh.position.y = BH / 2; product.add(coreMesh);
+  const m = new THREE.Mesh(bodyGeo, mat); m.userData.planes = mat.clippingPlanes.map(pl => pl.clone()); product.add(m); slices.push(m);
+  const cm = core.clone(); cm.clippingPlanes = mat.clippingPlanes; cm.side = THREE.DoubleSide; m.userData.anchor = new THREE.Vector3(0, SH * (i + 0.5), BD * 0.45); const cp = new THREE.Mesh(coreGeo, cm); cp.userData.core = true; cp.visible = false; m.add(cp); coreMats.push(cm); corePieces.push(cp); parts.push({ obj: m, k: i / (N - 1), kind: 'body' }); }
 // label panel (rim + logo) floats off as its own part
-const panel = new THREE.Group(); panel.position.set(0, BH * 0.46, BD / 2 + 0.004 * S); product.add(panel);
+const panel = new THREE.Group(); panel.position.set(0, BH * 0.46, BD / 2 + 0.004 * S); panel.userData.anchor = new THREE.Vector3(0.3 * S, 0.28 * S, 0.02 * S); product.add(panel);
 const ringShape = (() => { const w = 0.7 * S, h = 0.66 * S, r = 0.16 * S, s = new THREE.Shape(); s.moveTo(-w/2+r,-h/2); s.lineTo(w/2-r,-h/2); s.quadraticCurveTo(w/2,-h/2,w/2,-h/2+r); s.lineTo(w/2,h/2-r); s.quadraticCurveTo(w/2,h/2,w/2-r,h/2); s.lineTo(-w/2+r,h/2); s.quadraticCurveTo(-w/2,h/2,-w/2,h/2-r); s.lineTo(-w/2,-h/2+r); s.quadraticCurveTo(-w/2,-h/2,-w/2+r,-h/2); const iw=w-0.034*S, ih=h-0.034*S, ir=r-0.02*S, hole=new THREE.Path(); hole.moveTo(-iw/2+ir,-ih/2); hole.lineTo(iw/2-ir,-ih/2); hole.quadraticCurveTo(iw/2,-ih/2,iw/2,-ih/2+ir); hole.lineTo(iw/2,ih/2-ir); hole.quadraticCurveTo(iw/2,ih/2,iw/2-ir,ih/2); hole.lineTo(-iw/2+ir,ih/2); hole.quadraticCurveTo(-iw/2,ih/2,-iw/2,ih/2-ir); hole.lineTo(-iw/2,-ih/2+ir); hole.quadraticCurveTo(-iw/2,-ih/2,-iw/2+ir,-ih/2); s.holes.push(hole); return s; })();
-panel.add(new THREE.Mesh(new THREE.ExtrudeGeometry(ringShape, { depth: 0.01 * S, bevelEnabled: true, bevelThickness: 0.005 * S, bevelSize: 0.005 * S, bevelSegments: 2 }), new THREE.MeshStandardMaterial({ color: 0x9a9aa2, metalness: 1, roughness: 0.34, envMapIntensity: 1, emissive: 0xff2d8f, emissiveIntensity: 0 })));
+panel.add(new THREE.Mesh(new THREE.ExtrudeGeometry(ringShape, { depth: 0.01 * S, bevelEnabled: true, bevelThickness: 0.005 * S, bevelSize: 0.005 * S, bevelSegments: 2 }), new THREE.MeshStandardMaterial({ color: 0x9a9aa2, metalness: 1, roughness: 0.34, envMapIntensity: 1, emissive: 0xff1f55, emissiveIntensity: 0 })));
 const panelFace = new THREE.Mesh(new THREE.ShapeGeometry(rrect(0.67 * S, 0.63 * S, 0.145 * S), 16), glossy); panelFace.position.z = 0.002 * S; panel.add(panelFace);
 const logo = new THREE.Mesh(new THREE.PlaneGeometry(0.56 * S, 0.56 * S), logoMat); logo.position.z = 0.006 * S; panel.add(logo);
 parts.push({ obj: panel, k: 0.5, kind: 'panel' });
 // neck + collar + pump
 const neck = new THREE.Mesh(new THREE.CylinderGeometry(0.15 * S, 0.17 * S, 0.06 * S, 48), matte); neck.position.y = BH + 0.02 * S; product.add(neck); parts.push({ obj: neck, k: 1.05, kind: 'neck' });
 const cg = new THREE.CylinderGeometry(0.175 * S, 0.175 * S, 0.17 * S, 192, 1); { const p = cg.attributes.position; for (let i = 0; i < p.count; i++) { const x = p.getX(i), z = p.getZ(i), r = Math.hypot(x, z); if (r > 0.1) { const a = Math.atan2(z, x), k = Math.sin(a * 48) > 0 ? 0 : -0.007 * S; p.setX(i, x * (r + k) / r); p.setZ(i, z * (r + k) / r); } } cg.computeVertexNormals(); }
-const collar = new THREE.Group(); collar.position.y = BH + 0.05 * S; const collarM = new THREE.Mesh(cg, glossy.clone()); collarM.position.y = 0.085 * S; collar.add(collarM); const collarTop = new THREE.Mesh(new THREE.CylinderGeometry(0.15 * S, 0.175 * S, 0.03 * S, 64), glossy); collarTop.position.y = 0.185 * S; collar.add(collarTop); product.add(collar); parts.push({ obj: collar, k: 1.2, kind: 'collar' });
-const head = new THREE.Group(); head.position.y = BH + 0.25 * S; product.add(head); parts.push({ obj: head, k: 1.45, kind: 'pump' });
+const collar = new THREE.Group(); collar.position.y = BH + 0.05 * S; collar.userData.anchor = new THREE.Vector3(0.17 * S, 0.1 * S, 0); const collarM = new THREE.Mesh(cg, glossy.clone()); collarM.position.y = 0.085 * S; collar.add(collarM); const collarTop = new THREE.Mesh(new THREE.CylinderGeometry(0.15 * S, 0.175 * S, 0.03 * S, 64), glossy); collarTop.position.y = 0.185 * S; collar.add(collarTop); product.add(collar); parts.push({ obj: collar, k: 1.2, kind: 'collar' });
+const head = new THREE.Group(); head.position.y = BH + 0.25 * S; head.userData.anchor = new THREE.Vector3(-0.2 * S, 0.2 * S, 0); product.add(head); parts.push({ obj: head, k: 1.45, kind: 'pump' });
 { const m = new THREE.Mesh(new THREE.CylinderGeometry(0.075 * S, 0.075 * S, 0.1 * S, 32), glossy); m.position.y = 0.05 * S; head.add(m); }
 const prof = [[0,0],[0.155,0],[0.16,0.12],[0.15,0.17],[0.11,0.2],[0.05,0.215],[0,0.218]].map(([x,y]) => new THREE.Vector2(x * S, y * S));
 { const m = new THREE.Mesh(new THREE.LatheGeometry(prof, 64), glossy); m.position.y = 0.1 * S; head.add(m); }
@@ -320,15 +324,15 @@ if (GLB) new GLTFLoader().load(GLB, g => {
 const bodyHi = () => parts.find(p => p.kind === 'body' && p.k > 0.5)?.obj, bodyLo = () => parts.find(p => p.kind === 'body' && p.k < 0.3)?.obj, bodyMid = () => parts.find(p => p.kind === 'body' && Math.abs(p.k - 0.5) < 0.15)?.obj;
 const beats = [
   { k: 'The pump',     h: 'One hand.<br><em>One press.</em>',            p: 'Exactly the right amount, every time. No cap, no fumbling, no mess.',                        anchor: () => head,    side: 'l' },
-  { k: 'The formula',  h: 'Water-based.<br><em>pH-balanced.</em>',       p: 'Rinses clean with water. Nothing stings. Safe with latex condoms and silicone toys.',        anchor: bodyHi,        side: 'r' },
-  { k: 'Kind to you',  h: 'No marks.<br><em>No taste.</em>',             p: 'Nothing on the sheets, nothing on skin, no chemical aftertaste. And it leaves your nails alone.', anchor: () => panel, side: 'l' },
-  { k: 'The bottle',   h: 'Matte black.<br><em>Nightstand-proof.</em>',  p: 'A bottle you leave out on purpose. 250 ml, one-hand pump.',                                  anchor: () => product, side: 'r', img: 'assets/life-cushion.webp' },
+  { k: 'The formula',  h: 'Water-based.<br><em>pH-balanced.</em>',       p: 'Rinses clean with water. Nothing stings. Safe with latex condoms and silicone toys.',        anchor: bodyMid,       side: 'r' },
+  { k: 'Kind to you',  h: 'No marks.<br><em>No taste.</em>',             p: 'Nothing on the sheets, nothing on skin, no chemical aftertaste. And it leaves your nails alone.', anchor: bodyLo,      side: 'l' },
+  { k: 'The bottle',   h: 'Matte black.<br><em>Nightstand-proof.</em>',  p: 'A bottle you leave out on purpose. 250 ml, one-hand pump.',                                  anchor: bodyHi,        side: 'r' },
 ];
 const coWrap = document.getElementById('callouts'), coSvg = document.getElementById('cosvg');
 beats.forEach((c, i) => { const d = document.createElement('div'); d.className = 'co ' + c.side; d.innerHTML = `<div class="k"><i></i>${c.k}</div><h3>${c.h}</h3><p>${c.p}</p><div class="idx">${String(i + 1).padStart(2, '0')} / ${String(beats.length).padStart(2, '0')}</div>${c.img ? `<div class="ph"><img src="${c.img}" alt=""></div>` : ''}`; coWrap.appendChild(d); c.dom = d;
   const l = document.createElementNS('http://www.w3.org/2000/svg', 'line'); const dot = document.createElementNS('http://www.w3.org/2000/svg', 'circle'); dot.setAttribute('r', 3); dot.setAttribute('class', 'dot'); const halo = document.createElementNS('http://www.w3.org/2000/svg', 'circle'); halo.setAttribute('class', 'halo'); coSvg.append(l, dot, halo); c.line = l; c.dot = dot; c.halo = halo; });
 const _v = new THREE.Vector3();
-function worldOf(o) { if (!o) return null; return o.getWorldPosition(_v.set(0, 0, 0)).clone(); }
+function worldOf(o) { if (!o) return null; return o.userData.anchor ? o.localToWorld(o.userData.anchor.clone()) : o.getWorldPosition(_v.set(0, 0, 0)).clone(); }
 // beats run across the exploded hold: progress 0.34 → 0.66, each gets an equal slot
 const BEAT_A = 0.34, BEAT_B = 0.66, SLOT = (BEAT_B - BEAT_A) / beats.length;
 
@@ -429,15 +433,15 @@ const camPos = new THREE.Vector3(), look = new THREE.Vector3();
 window.addEventListener('resize', () => { camera.aspect = innerWidth / innerHeight; camera.updateProjectionMatrix(); renderer.setSize(innerWidth, innerHeight); composer.setSize(innerWidth, innerHeight); });
 function frame() {
   const dt = Math.min(clock.getDelta(), 0.05); t += dt;
-  readProgress(); pS += (progress - pS) * 0.06; velS += (vel - velS) * 0.1;
+  readProgress(); pS += (progress - pS) * (forceP ? 1 : 0.06); velS += (vel - velS) * 0.1;
   const p = pS;
   // explode amount: up 0.18→0.42, hold, back 0.62→0.82
   const ex = sm(0.16, 0.34, p) * (1 - sm(0.66, 0.84, p));
   // camera: wide → close orbit → low → pull back
-  const dist = 13.5 - 4.6 * sm(0.05, 0.3, p) + 1.6 * sm(0.3, 0.6, p) - 1.6 * sm(0.62, 0.82, p) + 7 * sm(0.84, 1, p);
+  const dist = 13.5 - 4.6 * sm(0.05, 0.3, p) + 5.2 * sm(0.28, 0.42, p) - 5.2 * sm(0.64, 0.8, p) + 7 * sm(0.84, 1, p);
   const yaw = 0.35 + 0.9 * sm(0.1, 0.34, p) + 0.5 * sm(0.34, 0.66, p) + 0.9 * sm(0.66, 0.88, p) + 0.3 * sm(0.88, 1, p) + (reduced ? 0 : mouse.x * 0.08);
   const pitch = 0.14 - 0.05 * sm(0.3, 0.55, p) - 0.03 * sm(0.62, 0.82, p) + 0.2 * sm(0.84, 1, p) + (reduced ? 0 : -mouse.y * 0.04);
-  const lookY = 3.0 - 1.2 * sm(0.02, 0.14, p) + 0.5 * ex + 0.6 * sm(0.84, 1, p);
+  const lookY = 3.0 - 1.2 * sm(0.02, 0.14, p) + 0.8 * ex + 0.6 * sm(0.84, 1, p);
   if (!gsap.isTweening(camState)) { camState.dist = dist; camState.yaw = yaw; camState.pitch = pitch; camState.lookY = lookY; }
   else { camState.yaw = yaw; camState.lookY = lookY; }
   camPos.set(Math.sin(camState.yaw) * Math.cos(camState.pitch) * camState.dist, groundY + Math.sin(camState.pitch) * camState.dist + 1.6, Math.cos(camState.yaw) * Math.cos(camState.pitch) * camState.dist);
@@ -446,11 +450,11 @@ function frame() {
   // product: slow idle turn + parts drifting apart
   product.rotation.y = Math.sin(t * 0.12) * 0.12;
   for (const q of parts) { const o = q.obj, r = q.rest; const lift = ex * (0.04 + q.k * 0.22) * S; const sway = ex * Math.sin(t * 0.7 + q.seed * 9) * 0.02;
-    const side = (q.kind === 'panel') ? ex * 0.28 * S : ex * (q.seed - 0.5) * 0.16 * S * (q.kind === 'body' ? 1 : 0.4);
-    o.position.set(r.pos.x + side * (q.kind === 'panel' ? 0 : 1), r.pos.y + lift + Math.sin(t * 0.9 + q.seed * 7) * ex * 0.02, r.pos.z + (q.kind === 'panel' ? side : ex * (q.seed - 0.5) * 0.12 * S));
+    const side = (q.kind === 'panel') ? ex * 0.28 * S : ex * (q.seed - 0.5) * 0.1 * S * (q.kind === 'body' ? 1 : 0.4);
+    o.position.set(r.pos.x + side * (q.kind === 'panel' ? 0 : 1), r.pos.y + lift + Math.sin(t * 0.9 + q.seed * 7) * ex * 0.02, r.pos.z + (q.kind === 'panel' ? side : ex * (q.seed - 0.5) * 0.06 * S));
     o.rotation.set(r.rot.x + ex * (q.seed - 0.5) * 0.16 + sway, r.rot.y + ex * (q.seed - 0.5) * 0.3, r.rot.z + ex * (q.seed - 0.5) * 0.1); }
   product.updateMatrixWorld(true); for (const m of slices) { m.material.clippingPlanes[0].copy(m.userData.planes[0]).applyMatrix4(m.matrixWorld); m.material.clippingPlanes[1].copy(m.userData.planes[1]).applyMatrix4(m.matrixWorld); }
-  bloom.strength = 0.4 + ex * 0.5; core.opacity = Math.min(1, ex * 2.5); coreMesh.visible = ex > 0.01;
+  bloom.strength = 0.4 + ex * 0.5; for (const cm of coreMats) cm.opacity = Math.min(1, ex * 2.5); for (const cp of corePieces) cp.visible = ex > 0.01;
   // post: intro glitch + a flicker when you scroll fast
   glitch.uniforms.uAmt.value = fx.glitch * 0.9 + Math.min(Math.abs(velS) / 220, 0.12); glitch.uniforms.uT.value = t;
   // UI
@@ -466,7 +470,7 @@ function frame() {
     const tgt = c.anchor(); const w = worldOf(tgt); if (!w || v <= 0.001) { c.line.style.opacity = 0; c.dot.style.opacity = 0; c.halo.style.opacity = 0; return; }
     if (tgt === product) w.y += 1.2;
     const sc = w.project(camera); const x = (sc.x + 1) / 2 * innerWidth, y = (1 - sc.y) / 2 * innerHeight;
-    const r = c.dom.getBoundingClientRect(); const tx = c.side === 'l' ? r.right + 18 : r.left - 18, ty = r.top + r.height * 0.42;
+    const r = c.dom.querySelector('h3').getBoundingClientRect(); const tx = c.side === 'l' ? r.right + 22 : r.left - 22, ty = r.top + r.height * 0.5;
     const len = Math.hypot(x - tx, y - ty), draw = sm(0, 0.35, v);
     c.line.setAttribute('x1', tx); c.line.setAttribute('y1', ty); c.line.setAttribute('x2', x); c.line.setAttribute('y2', y);
     c.line.style.strokeDasharray = len; c.line.style.strokeDashoffset = len * (1 - draw); c.line.style.opacity = v;
@@ -475,7 +479,7 @@ function frame() {
   });
   // the part being described glows a little
   { let hot = null; beats.forEach((c, i) => { const a0 = BEAT_A + SLOT * i; if (p >= a0 && p < a0 + SLOT) hot = c.anchor(); });
-    product.traverse(o => { if (o !== coreMesh && o.isMesh && o.material && o.material.emissive) { const on = hot && (o === hot || (hot.children && hot.children.includes(o)) || (hot === product && false)); o.material.emissive.setHex(0xff2d8f); o.material.emissiveIntensity += ((on ? 0.22 : 0) - o.material.emissiveIntensity) * 0.1; } }); }
+    product.traverse(o => { if (!o.userData.core && o !== logo && o.isMesh && o.material && o.material.emissive) { const on = hot && (o === hot || (hot.children && hot.children.includes(o)) || (hot === product && false)); o.material.emissive.setHex(0xff1f55); o.material.emissiveIntensity += ((on ? 0.22 : 0) - o.material.emissiveIntensity) * 0.1; } }); }
   if (!document.hidden) composer.render();
 }
 renderer.setAnimationLoop(frame);
