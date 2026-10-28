@@ -130,6 +130,8 @@
   h1,h2,h3,.pre .word,.co h3,.end h2,.cap h2,.title h1,.buy h1,.fact h3,.faq h2,.ghead h2,.q button,.drawer header h3{text-transform:uppercase;letter-spacing:.01em}
   em{font-style:normal!important}
   @media (max-width:760px){.nav{padding:16px 20px}.brand{font-size:18px;gap:8px;white-space:nowrap}.brand img{width:26px;height:26px}.nav .right{gap:14px;font-size:12.5px}}
+  .snd{display:flex;align-items:center;gap:8px;font-size:12.5px;font-weight:500;color:var(--muted)} .snd:hover{color:var(--ink)} .snd i{display:inline-block;width:12px;height:12px;border-radius:50%;border:1px solid currentColor;position:relative} .snd i::after{content:'';position:absolute;inset:3px;border-radius:50%;background:currentColor;opacity:0;transition:opacity .3s} .snd.on i::after{opacity:1}
+  @media (max-width:760px){.snd span{display:none}}
 </style>
 </head>
 <body>
@@ -139,7 +141,7 @@
 
 <nav class="nav" aria-label="Main">
   <a class="brand" href="index.html" data-hover><img src="assets/logo-sm.webp" alt="">Slick Velvet</a>
-  <div class="right"><a href="index.html" data-hover>Home</a><a href="delivery.html" data-hover>Delivery</a><a href="#faq" data-hover>FAQ</a><button class="bag" id="bagBtn" aria-label="Open bag" data-hover>Bag <b id="bagCount">0</b></button></div>
+  <div class="right"><button class="snd" data-sound data-hover aria-label="Toggle sound"><i></i><span>Sound on</span></button><a href="index.html" data-hover>Home</a><a href="delivery.html" data-hover>Delivery</a><a href="#faq" data-hover>FAQ</a><button class="bag" id="bagBtn" aria-label="Open bag" data-hover>Bag <b id="bagCount">0</b></button></div>
 </nav>
 
 <main>
@@ -212,9 +214,11 @@
 </aside>
 <div class="toast" id="toast">Added to bag</div>
 
+<script src="sound.js"></script>
 <script type="module">
 import gsap from 'https://cdn.jsdelivr.net/npm/gsap@3.12.5/index.js';
 const isTouch = matchMedia('(hover:none)').matches; if (!isTouch) document.body.classList.add('has-cursor');
+SVSound.auto();
 // age gate: skip if the scene already confirmed it
 let ok = false; try { ok = localStorage.getItem('sv18') === '1'; } catch {}
 const gate = document.getElementById('gate'); if (!ok) gate.classList.remove('off');

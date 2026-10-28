@@ -162,7 +162,7 @@
   <a class="brand" href="#top" data-hover><img src="assets/logo-sm.webp" alt="">Slick Velvet</a>
   <div class="small tl">Personal lubricant<br>Made in Cape Town</div>
   <div class="small tr">A note<b>Lube you'd be proud to leave on the nightstand.</b></div>
-  <div class="bl"><button id="snd" data-hover><i></i><span>Sound off</span></button></div>
+  <div class="bl"><button id="snd" data-sound data-hover><i></i><span>Sound on</span></button></div>
   <div class="small br">Water-based<br>Plain-box delivery</div>
   <div class="scroll" id="scrollHint"><i></i>Scroll</div>
   <div class="title" id="title"><h1>Slick<br><em>Velvet</em></h1><p>Water-based personal lubricant. Never sticky, rinses clean.</p></div>
@@ -172,6 +172,7 @@
 </div>
 <div class="track" id="top"></div>
 
+<script src="sound.js"></script>
 <script async src="https://cdn.jsdelivr.net/npm/es-module-shims@1.10.0/dist/es-module-shims.js"></script>
 <script type="importmap">{ "imports": {
   "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
@@ -365,38 +366,9 @@ const glitch = new ShaderPass({ uniforms: { tDiffuse: { value: null }, uAmt: { v
       gl_FragColor = vec4(col, 1.0); }` }); composer.addPass(glitch); composer.addPass(new OutputPass());
 const fx = { glitch: 1.0 };
 
-/* ---------- sound (synthesised, nothing to load) ---------- */
-let ac = null, sndOn = false; const sndBtn = document.getElementById('snd');
-function makeSound() { ac = new (window.AudioContext || window.webkitAudioContext)(); const master = ac.createGain(); master.gain.value = 0;
-  const comp = ac.createDynamicsCompressor(); comp.threshold.value = -18; comp.ratio.value = 4; comp.attack.value = 0.005; comp.release.value = 0.25; master.connect(comp); comp.connect(ac.destination);
-  const BPM = 92, beat = 60 / BPM, bar = beat * 4;
-  // pad: two detuned saws through a slow-opening lowpass, ducked by the kick
-  const duck = ac.createGain(); duck.gain.value = 1; duck.connect(master);
-  const padF = ac.createBiquadFilter(); padF.type = 'lowpass'; padF.frequency.value = 520; padF.Q.value = 0.8; padF.connect(duck);
-  const padG = ac.createGain(); padG.gain.value = 0.06; padG.connect(padF);
-  for (const [f, d] of [[55 * 2, -6], [55 * 2, 7], [82.41 * 2, 4]]) { const o = ac.createOscillator(); o.type = 'sawtooth'; o.frequency.value = f; o.detune.value = d; o.connect(padG); o.start(); }
-  const lfo = ac.createOscillator(); lfo.frequency.value = 1 / (bar * 4); const lg = ac.createGain(); lg.gain.value = 320; lfo.connect(lg); lg.connect(padF.frequency); lfo.start();
-  // noise for hats
-  const nb = ac.createBuffer(1, ac.sampleRate, ac.sampleRate); const nd = nb.getChannelData(0); for (let i = 0; i < nd.length; i++) nd[i] = Math.random() * 2 - 1;
-  const bassNotes = [36.71, 36.71, 36.71, 43.65, 36.71, 36.71, 32.70, 32.70]; // D1 D1 D1 G1 | D1 D1 C1 C1 (8ths over 2 bars → one per half-beat pattern slot)
-  let next = ac.currentTime + 0.1, step = 0;
-  function kick(t) { const o = ac.createOscillator(), g = ac.createGain(); o.frequency.setValueAtTime(140, t); o.frequency.exponentialRampToValueAtTime(42, t + 0.12); g.gain.setValueAtTime(0.9, t); g.gain.exponentialRampToValueAtTime(0.001, t + 0.42); o.connect(g); g.connect(master); o.start(t); o.stop(t + 0.45);
-    duck.gain.cancelScheduledValues(t); duck.gain.setValueAtTime(0.35, t); duck.gain.linearRampToValueAtTime(1, t + beat * 0.8); }
-  function bass(t, f, len) { const o = ac.createOscillator(), g = ac.createGain(), fl = ac.createBiquadFilter(); o.type = 'square'; o.frequency.value = f; fl.type = 'lowpass'; fl.frequency.setValueAtTime(700, t); fl.frequency.exponentialRampToValueAtTime(180, t + len); g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(0.16, t + 0.01); g.gain.exponentialRampToValueAtTime(0.0001, t + len); o.connect(fl); fl.connect(g); g.connect(duck); o.start(t); o.stop(t + len + 0.02); }
-  function hat(t, open) { const n = ac.createBufferSource(); n.buffer = nb; const hp = ac.createBiquadFilter(); hp.type = 'highpass'; hp.frequency.value = 7000; const g = ac.createGain(); g.gain.setValueAtTime(open ? 0.05 : 0.03, t); g.gain.exponentialRampToValueAtTime(0.0001, t + (open ? 0.18 : 0.05)); n.connect(hp); hp.connect(g); g.connect(master); n.start(t); n.stop(t + 0.2); }
-  function sched() { while (next < ac.currentTime + 0.4) { const t = next, s16 = step % 16;   // 16th-note grid, 1 bar = 16 steps
-      if (s16 % 4 === 0) kick(t);
-      if (s16 % 2 === 0) { const i = ((step >> 1) % 8); bass(t, bassNotes[i], beat * 0.45); }
-      if (s16 % 4 === 2) hat(t, s16 === 14);
-      next += beat / 4; step++; } }
-  setInterval(sched, 100);
-  return master; }
-let master = null; let wantSound = true;  // on by default; browsers only allow audio after the first gesture
-function applySound() { if (!ac) master = makeSound(); if (ac.state === 'suspended') ac.resume(); sndOn = wantSound; master.gain.setTargetAtTime(sndOn ? 0.5 : 0, ac.currentTime, 0.6); sndBtn.classList.toggle('on', sndOn); sndBtn.querySelector('span').textContent = sndOn ? 'Sound on' : 'Sound off'; }
-sndBtn.classList.add('on'); sndBtn.querySelector('span').textContent = 'Sound on';
-sndBtn.addEventListener('click', e => { e.stopPropagation(); wantSound = !wantSound; applySound(); });
-document.addEventListener('visibilitychange', () => { if (!document.hidden && wantSound && ac && ac.state === 'suspended') ac.resume(); });
-
+/* ---------- sound: shared engine in sound.js ---------- */
+const sndBtn = document.getElementById('snd');
+{ let off = false; try { off = localStorage.getItem('sv-sound') === '0'; } catch {} sndBtn.classList.toggle('on', !off); sndBtn.querySelector('span').textContent = off ? 'Sound off' : 'Sound on'; }
 /* ---------- preloader → intro ---------- */
 const pre = document.getElementById('pre'), pn = document.getElementById('pn'), pb = document.getElementById('pb');
 const load = { v: 0 }; let ready = false; logoTex.image ? ready = true : (logoTex.onUpdate = () => ready = true); setTimeout(() => ready = true, 4000);
@@ -414,7 +386,7 @@ function gate() {
   setTimeout(() => { document.getElementById('enter').classList.add('on'); document.getElementById('legal').classList.add('on'); }, 900);
 }
 function enter() {
-  if (entered) return; entered = true; wantSound = true; try { localStorage.setItem('sv18', '1'); } catch {} try { applySound(); } catch {}
+  if (entered) return; entered = true; try { localStorage.setItem('sv18', '1'); } catch {} try { SVSound.start(); } catch {}
   gsap.timeline()
     .to('#enterBtn', { scale: 0.92, duration: .12, ease: 'power2.in' })
     .to('#enterBtn', { scale: 18, opacity: 0, duration: .9, ease: 'expo.in' })
