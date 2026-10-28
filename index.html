@@ -123,7 +123,17 @@
   .end .pic img{width:100%;height:100%;object-fit:cover;display:block}
   .end .pic.a{left:clamp(24px,7vw,120px)} .end .pic.b{right:clamp(24px,7vw,120px)}
   @media (max-width:900px){.end .pic,.co .ph{display:none}}
-  @media (max-width:760px){.tr,.c2{display:none}.title h1{font-size:22vw}}
+  @media (max-width:760px){
+    .tr,.c2,.br{display:none}
+    .tl{top:70px;font-size:12px}
+    .title{top:30%} .title h1{font-size:21vw;line-height:.92} .title p{font-size:14px;padding:0 28px}
+    .cap{max-width:none} .c1{left:24px;right:24px;top:auto;bottom:11vh;transform:none} .cap h2{font-size:11.5vw} .cap p{font-size:15px}
+    .co,.co.l,.co.r{width:auto;left:24px;right:24px;top:auto;bottom:10vh;text-align:left}
+    .co h3{font-size:12.5vw;line-height:.98} .co p{font-size:15.5px;max-width:none;margin-left:0} .co .k{font-size:11px;margin-bottom:10px}
+    .end{padding:0 20px} .end h2{font-size:13vw} .end p{font-size:15px} .end .ctas{flex-direction:column;align-items:stretch;gap:10px} .end .btn{justify-content:center;padding:16px 22px}
+    .scroll{bottom:24px}
+    .bl{bottom:22px}
+  }
   h1,h2,h3,.pre .word,.co h3,.end h2,.cap h2,.title h1,.buy h1,.fact h3,.faq h2,.ghead h2,.q button,.drawer header h3{text-transform:uppercase;letter-spacing:.01em}
   em{font-style:normal!important}
 </style>
@@ -158,7 +168,7 @@
   <div class="title" id="title"><h1>Slick<br><em>Velvet</em></h1><p>Water-based personal lubricant. Never sticky, rinses clean.</p></div>
   <div class="cap c1" id="cap1"><h2>Velvet-thin.<br><em>Never sticky.</em></h2><p>Spreads with a fingertip, stays slippery for as long as you need it, and rinses off with water.</p></div>
   <div class="cap c2" id="cap2"><h2>Plain box.<br><em>Quiet statement.</em></h2><p>No branding on the parcel and a neutral name on your bank statement. Anywhere in South Africa in two to five days.</p></div>
-  <div class="end" id="end"><div class="pic a" id="picA"><img src="assets/life-bed.webp" alt=""></div><div class="pic b" id="picB"><img src="assets/life-wall.webp" alt=""></div><h2>One press.<br><em>The right amount.</em></h2><p>The Pump, 250 ml — R249. Made in Cape Town.</p><div class="ctas"><a class="btn btn-pink" href="shop.html" data-hover>Shop the Pump</a><a class="btn btn-ghost" href="shop.html#faq" data-hover>Questions</a></div></div>
+  <div class="end" id="end"><div class="pic a" id="picA"><img src="assets/life-bed.webp" alt=""></div><div class="pic b" id="picB"><img src="assets/life-wall.webp" alt=""></div><h2>One press.<br><em>The right amount.</em></h2><p>The Pump, 250 ml — R249. Made in Cape Town.</p><div class="ctas"><a class="btn btn-pink" href="shop.html" data-hover>Shop the Pump</a><a class="btn btn-ghost" href="delivery.html" data-hover>Discreet delivery</a></div></div>
 </div>
 <div class="track" id="top"></div>
 
@@ -185,6 +195,7 @@ import Lenis from 'lenis';
 const sm = (a, b, x) => { const k = Math.min(Math.max((x - a) / (b - a), 0), 1); return k * k * (3 - 2 * k); };
 const lerp = (a, b, t) => a + (b - a) * t;
 const isTouch = matchMedia('(hover:none)').matches, reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+let narrow = matchMedia('(max-width:760px)').matches; window.addEventListener('resize', () => { narrow = matchMedia('(max-width:760px)').matches; });
 if (!isTouch) document.body.classList.add('has-cursor');
 
 /* ---------- scroll ---------- */
@@ -204,7 +215,7 @@ document.querySelectorAll('[data-hover]').forEach(el => { el.addEventListener('p
 /* ---------- renderer ---------- */
 const canvas = document.getElementById('gl');
 const renderer = new THREE.WebGLRenderer({ canvas, antialias: false, powerPreference: 'high-performance' });
-renderer.setPixelRatio(Math.min(devicePixelRatio, 1.75)); renderer.setSize(innerWidth, innerHeight);
+renderer.setPixelRatio(Math.min(devicePixelRatio, narrow ? 1.3 : 1.75)); renderer.setSize(innerWidth, innerHeight);
 renderer.outputColorSpace = THREE.SRGBColorSpace; renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.toneMappingExposure = 1.0;
 const scene = new THREE.Scene(); scene.background = new THREE.Color(0x14060a); scene.fog = new THREE.FogExp2(0x14060a, 0.04);
 const camera = new THREE.PerspectiveCamera(32, innerWidth / innerHeight, 0.1, 200);
@@ -245,7 +256,7 @@ const terrainMat = new THREE.ShaderMaterial({
       gl_FragColor = vec4(col, 1.0);
     }`
 });
-const terrain = new THREE.Mesh(new THREE.PlaneGeometry(160, 160, 320, 320), terrainMat); terrain.rotation.x = -Math.PI / 2; scene.add(terrain);
+const terrain = new THREE.Mesh(new THREE.PlaneGeometry(160, 160, narrow ? 200 : 320, narrow ? 200 : 320), terrainMat); terrain.rotation.x = -Math.PI / 2; scene.add(terrain);
 // JS mirror of the mound height at the origin so the bottle sits on it
 const groundY = 1.35 - 0.45 - 0.2;
 
@@ -444,8 +455,9 @@ function frame() {
   const lookY = 3.0 - 1.2 * sm(0.02, 0.14, p) + 0.8 * ex + 0.6 * sm(0.84, 1, p);
   if (!gsap.isTweening(camState)) { camState.dist = dist; camState.yaw = yaw; camState.pitch = pitch; camState.lookY = lookY; }
   else { camState.yaw = yaw; camState.lookY = lookY; }
-  camPos.set(Math.sin(camState.yaw) * Math.cos(camState.pitch) * camState.dist, groundY + Math.sin(camState.pitch) * camState.dist + 1.6, Math.cos(camState.yaw) * Math.cos(camState.pitch) * camState.dist);
-  camera.position.lerp(camPos, 0.08); look.set(0, groundY + camState.lookY, 0); camera.lookAt(look);
+  const pb = camera.aspect < 1 ? Math.min(2.3, Math.pow(1 / camera.aspect, 0.85)) : 1, cd = camState.dist * pb;
+  camPos.set(Math.sin(camState.yaw) * Math.cos(camState.pitch) * cd, groundY + Math.sin(camState.pitch) * cd + 1.6, Math.cos(camState.yaw) * Math.cos(camState.pitch) * cd);
+  camera.position.lerp(camPos, 0.08); look.set(0, groundY + camState.lookY - (narrow ? 0.9 * (sm(0.1, 0.34, p)) : 0), 0); camera.lookAt(look);
   terrainMat.uniforms.uCam.value.copy(camera.position); terrainMat.uniforms.uT.value = t; dropsMat.uniforms.uT.value = t;
   // product: slow idle turn + parts drifting apart
   product.rotation.y = Math.sin(t * 0.12) * 0.12;
@@ -459,14 +471,14 @@ function frame() {
   glitch.uniforms.uAmt.value = fx.glitch * 0.9 + Math.min(Math.abs(velS) / 220, 0.12); glitch.uniforms.uT.value = t;
   // UI
   const t0 = 1 - sm(0.02, 0.1, p); title.style.opacity = t0; title.style.transform = `translate(-50%, calc(-50% + ${(1 - t0) * -30}px))`; hint.style.opacity = t0;
-  const v1 = sm(0.12, 0.18, p) * (1 - sm(0.28, 0.33, p)); cap1.style.opacity = v1; cap1.style.transform = `translateY(calc(-50% + ${(1 - v1) * 30}px))`;
+  const v1 = sm(0.12, 0.18, p) * (1 - sm(0.28, 0.33, p)); cap1.style.opacity = v1; cap1.style.transform = `translateY(calc(${narrow ? '0%' : '-50%'} + ${(1 - v1) * 30}px))`;
   const v2 = sm(0.7, 0.76, p) * (1 - sm(0.82, 0.87, p)); cap2.style.opacity = v2; cap2.style.transform = `translateY(calc(-50% + ${(1 - v2) * 30}px))`;
   const ve = sm(0.88, 0.97, p); end.style.opacity = ve; end.style.pointerEvents = ve > 0.6 ? 'auto' : 'none'; end.style.transform = `translate(-50%, calc(-50% + ${(1 - ve) * 30}px))`;
   uiFade.forEach(e => e.style.opacity = 1 - sm(0.86, 0.95, p));
   const va = sm(0.9, 0.98, p), vb = sm(0.92, 1, p); picA.style.opacity = va; picA.style.transform = `translateY(-50%) rotate(${-7 + (1 - va) * 10}deg) translateX(${(1 - va) * -60}px)`; picB.style.opacity = vb; picB.style.transform = `translateY(-50%) rotate(${6 - (1 - vb) * 10}deg) translateX(${(1 - vb) * 60}px)`;
   // beats
   beats.forEach((c, i) => { const a0 = BEAT_A + SLOT * i, b0 = a0 + SLOT; const v = sm(a0, a0 + SLOT * 0.22, p) * (1 - sm(b0 - SLOT * 0.18, b0, p));
-    c.dom.style.opacity = v; c.dom.style.transform = `translateY(calc(-50% + ${(1 - v) * 40}px))`;
+    c.dom.style.opacity = v; c.dom.style.transform = `translateY(calc(${narrow ? '0%' : '-50%'} + ${(1 - v) * 40}px))`;
     const tgt = c.anchor(); const w = worldOf(tgt); if (!w || v <= 0.001) { c.line.style.opacity = 0; c.dot.style.opacity = 0; c.halo.style.opacity = 0; return; }
     if (tgt === product) w.y += 1.2;
     const sc = w.project(camera); const x = (sc.x + 1) / 2 * innerWidth, y = (1 - sc.y) / 2 * innerHeight;

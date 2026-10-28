@@ -91,6 +91,11 @@
   .ggrid .big{grid-column:span 2;grid-row:span 2}
   .ggrid .tall{grid-row:span 2}
   .reveal{opacity:0;transform:translateY(28px)} .reveal.in{opacity:1;transform:none;transition:opacity 1.1s cubic-bezier(.19,1,.22,1),transform 1.1s cubic-bezier(.19,1,.22,1)}
+  .strip{overflow:hidden;margin:0 calc(-1*clamp(24px,4vw,64px)) 34px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+  .strip .track{display:flex;gap:12px;width:max-content;animation:strip 90s linear infinite} .strip:hover .track{animation-play-state:paused}
+  .strip img{height:clamp(200px,26vw,340px);aspect-ratio:4/5;object-fit:cover;border:1px solid var(--line);display:block}
+  @keyframes strip{to{transform:translateX(-50%)}}
+  @media (prefers-reduced-motion:reduce){.strip .track{animation:none}}
   /* bag */
   .scrim{position:fixed;inset:0;background:rgba(7,3,8,.6);backdrop-filter:blur(6px);opacity:0;pointer-events:none;transition:opacity .4s;z-index:80} .scrim.on{opacity:1;pointer-events:auto}
   .drawer{position:fixed;top:0;right:0;bottom:0;width:min(440px,100vw);background:var(--bg-2);border-left:1px solid var(--line);z-index:90;transform:translateX(104%);transition:transform .6s cubic-bezier(.19,1,.22,1);display:grid;grid-template-rows:auto 1fr auto}
@@ -124,6 +129,7 @@
   @media (max-width:760px){.foot,.facts{grid-template-columns:1fr}}
   h1,h2,h3,.pre .word,.co h3,.end h2,.cap h2,.title h1,.buy h1,.fact h3,.faq h2,.ghead h2,.q button,.drawer header h3{text-transform:uppercase;letter-spacing:.01em}
   em{font-style:normal!important}
+  @media (max-width:760px){.nav{padding:16px 20px}.brand{font-size:18px;gap:8px;white-space:nowrap}.brand img{width:26px;height:26px}.nav .right{gap:14px;font-size:12.5px}}
 </style>
 </head>
 <body>
@@ -133,7 +139,7 @@
 
 <nav class="nav" aria-label="Main">
   <a class="brand" href="index.html" data-hover><img src="assets/logo-sm.webp" alt="">Slick Velvet</a>
-  <div class="right"><a href="index.html" data-hover>Home</a><a href="#faq" data-hover>FAQ</a><button class="bag" id="bagBtn" aria-label="Open bag" data-hover>Bag <b id="bagCount">0</b></button></div>
+  <div class="right"><a href="index.html" data-hover>Home</a><a href="delivery.html" data-hover>Delivery</a><a href="#faq" data-hover>FAQ</a><button class="bag" id="bagBtn" aria-label="Open bag" data-hover>Bag <b id="bagCount">0</b></button></div>
 </nav>
 
 <main>
@@ -151,7 +157,7 @@
             <button class="size" data-sku="duo" aria-pressed="false" data-hover><b>The Duo</b><span>250 + 50 ml · R299</span></button>
           </div></div>
         <div class="row"><div class="qty"><button id="qminus" aria-label="Less" data-hover>−</button><output id="qty">1</output><button id="qplus" aria-label="More" data-hover>+</button></div><button class="btn btn-pink add" id="addBtn" data-hover>Add to bag</button></div>
-        <ul class="trust"><li>Free delivery on orders over R450</li><li>Plain packaging, discreet billing</li><li>7-day cooling-off on online orders</li></ul>
+        <ul class="trust"><li>Free delivery on orders over R450</li><li><a href="delivery.html" data-hover style="border-bottom:1px solid rgba(246,238,242,.3)">Plain packaging, discreet billing</a></li><li>7-day cooling-off on online orders</li></ul>
       </div>
     </div>
     <div class="facts">
@@ -163,7 +169,8 @@
   </section>
 
   <section class="gallery gutter" id="gallery">
-    <div class="ghead reveal"><h2>Shot in <em>Cape Town.</em></h2><p>No studio, no render. The actual bottle, out in the open, on a Tuesday.</p></div>
+    <div class="ghead reveal"><h2>Shot in Cape Town.<br><em>Lives anywhere.</em></h2><p>No studio, no render. One bottle, carried around the city for a day — the bed, the garden, the wall, the glovebox. It looks right everywhere, which is the point.</p></div>
+    <div class="strip" aria-hidden="true"><div class="track"><img src="assets/life-daybed.webp" alt="" loading="lazy"><img src="assets/life-hand.webp" alt="" loading="lazy"><img src="assets/life-ledge.webp" alt="" loading="lazy"><img src="assets/life-wall.webp" alt="" loading="lazy"><img src="assets/life-table.webp" alt="" loading="lazy"><img src="assets/life-pillow.webp" alt="" loading="lazy"><img src="assets/life-green.webp" alt="" loading="lazy"><img src="assets/life-flat.webp" alt="" loading="lazy"><img src="assets/life-trio.webp" alt="" loading="lazy"><img src="assets/life-garden.webp" alt="" loading="lazy"><img src="assets/life-sky.webp" alt="" loading="lazy"><img src="assets/life-table2.webp" alt="" loading="lazy"><img src="assets/life-bed.webp" alt="" loading="lazy"><img src="assets/life-lineup.webp" alt="" loading="lazy"><img src="assets/life-wall2.webp" alt="" loading="lazy"><img src="assets/life-cushion.webp" alt="" loading="lazy"><img src="assets/life-daybed.webp" alt="" loading="lazy"><img src="assets/life-hand.webp" alt="" loading="lazy"><img src="assets/life-ledge.webp" alt="" loading="lazy"><img src="assets/life-wall.webp" alt="" loading="lazy"><img src="assets/life-table.webp" alt="" loading="lazy"><img src="assets/life-pillow.webp" alt="" loading="lazy"><img src="assets/life-green.webp" alt="" loading="lazy"><img src="assets/life-flat.webp" alt="" loading="lazy"><img src="assets/life-trio.webp" alt="" loading="lazy"><img src="assets/life-garden.webp" alt="" loading="lazy"><img src="assets/life-sky.webp" alt="" loading="lazy"><img src="assets/life-table2.webp" alt="" loading="lazy"><img src="assets/life-bed.webp" alt="" loading="lazy"><img src="assets/life-lineup.webp" alt="" loading="lazy"><img src="assets/life-wall2.webp" alt="" loading="lazy"><img src="assets/life-cushion.webp" alt="" loading="lazy"></div></div>
     <div class="ggrid">
       <figure class="big reveal"><img src="assets/life-bed.webp" alt="Slick Velvet pump on a daybed" loading="lazy"><figcaption>The Pump · 250 ml</figcaption></figure>
       <figure class="reveal"><img src="assets/life-hand.webp" alt="The travel bottle in a palm" loading="lazy"><figcaption>The Travel · 50 ml</figcaption></figure>
@@ -191,7 +198,7 @@
   <div class="foot">
     <div class="about"><img src="assets/logo-sm.webp" alt="Slick Velvet"><p>Personal lubricant made in Cape Town and shipped discreetly across South Africa.</p><ul style="display:flex;gap:18px"><li><a href="#" data-hover>Instagram</a></li><li><a href="#" data-hover>TikTok</a></li></ul></div>
     <div><h4>Shop</h4><ul><li><a href="#shop" data-hover>The Pump</a></li><li><a href="#shop" data-hover>The Travel</a></li><li><a href="#shop" data-hover>The Duo</a></li></ul></div>
-    <div><h4>Help</h4><ul><li><a href="#faq" data-hover>FAQ</a></li><li><a href="#" data-hover>Shipping &amp; returns</a></li><li><a href="#" data-hover>Contact</a></li></ul></div>
+    <div><h4>Help</h4><ul><li><a href="#faq" data-hover>FAQ</a></li><li><a href="delivery.html" data-hover>Delivery &amp; discretion</a></li><li><a href="#" data-hover>Contact</a></li></ul></div>
     <div><h4>Legal</h4><ul><li><a href="#" data-hover>Privacy policy</a></li><li><a href="#" data-hover>Terms &amp; conditions</a></li></ul></div>
   </div>
   <div class="legal"><div class="ecta"><em>[Registered business name (Pty) Ltd · Reg. no.]</em> · <em>[Physical address, Cape Town]</em> · <em>[hello@slickvelvet.co.za · +27 …]</em> · Prices in ZAR incl. VAT · For adults 18+</div><span>© 2026 Slick Velvet</span><span>slickvelvet.co.za</span></div>
